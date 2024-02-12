@@ -1,0 +1,61 @@
+.card{
+    background-color: rgb(233, 233, 233);
+    width: 350px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.card:hover{
+    transition-duration: .2s;
+    filter: drop-shadow(1px 1px 5px rgb(245, 245, 245));
+}
+.content{
+    padding: 20px;
+}
+.tag{
+    background-color: rgb(253, 219, 109);
+    border-radius: 30px;
+    width: fit-content;
+    padding: 5px 20px;
+    font-weight: bold;
+    color: rgb(39, 39, 39);
+    font-size: 20px;
+}
+.date{
+    margin-top: 20px;
+    color: rgb(39, 39, 39);
+    font-size: 20px;
+}
+.eventName{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(96, 63, 240);
+}
+.location{
+    font-size: 20px;
+    margin-top: 60px;
+    display: flex;
+}
+.location div{
+    margin-right: 10px;
+}
+.btn{
+    margin-top: 10px;
+    display: flex;
+    border: 2px solid rgb(96, 63, 240);
+    border-radius: 20px;
+    width: fit-content;
+    padding: 5px 20px;
+    align-items: center;
+}
+.btn div{
+    color: rgb(96, 63, 240);
+    margin-right: 10px;
+}
+.btn:hover{
+    transition-duration: .3s;
+    background-color:rgb(96, 63, 240) ;
+}
+.btn:hover div{
+    transition-duration: .3s;
+    color: white;
+}
