@@ -30,11 +30,12 @@ const cardData = [
   const handleModal = (IsOpen) => {
     SetIsModalOpen(IsOpen)
   }
+  const layout = document.currentScript.getAttribute('data-layout');
   return (
     <div className="container">
       {cardData.length === 1 
         ? <SingleData cardData={cardData} /> 
-          : <MultipleData cardData={cardData} layout={"flex"}/>
+          : <MultipleData cardData={cardData} layout={layout}/>
       }
     </div>
   );
