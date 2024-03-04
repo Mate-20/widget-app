@@ -1,13 +1,14 @@
 .navContainer {
     height: fit-content;
     overflow-x: scroll;
-    padding: 50px;
+    width: 100vw;
     background: linear-gradient(118deg, rgba(36, 36, 36, 1) 0%, rgba(0, 0, 0, 1) 100%);
 }
 
 .cardNavStyle {
     column-gap: 30px;
     display: flex;
+    margin: 30px;
 }
 
 .sideContainer {
