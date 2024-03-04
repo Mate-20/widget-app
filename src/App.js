@@ -6,7 +6,7 @@ import tedx from './images/tedx.png'
 import theatre from './images/theatre.jpg'
 import './App.css'
 
-const App = () => {
+const App = ({layout}) => {
   const [IsModalOpen, SetIsModalOpen] = useState(false)
 
   // To store the data of the card that is selected, so that we can send this data to modal
@@ -30,7 +30,6 @@ const cardData = [
   const handleModal = (IsOpen) => {
     SetIsModalOpen(IsOpen)
   }
-  const layout = document.currentScript.getAttribute('data-layout');
   return (
     <div className="container">
       {cardData.length === 1 
