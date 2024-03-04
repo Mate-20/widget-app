@@ -3,7 +3,7 @@ import styles from './multipledata.style.module.css'
 import Cards from "./Cards"
 import Modal from "./Modal"
 
-const MultipleData = ({ cardData }) => {
+const MultipleData = ({ cardData, layout }) => {
     const [IsModalOpen, SetIsModalOpen] = useState(false)
 
     // To store the data of the card that is selected, so that we can send this data to modal
@@ -15,9 +15,9 @@ const MultipleData = ({ cardData }) => {
 
     return (
         <div className={styles.body}>
-            <div className={`${styles.container} ${IsModalOpen ? styles.blur : ""}`}>
+            <div className={`${layout === "navbar"? styles.navContainer: layout==="sidebar"?styles.sideContainer : styles.gridContainer} ${IsModalOpen ? styles.blur : ""}`}>
                 <div className={styles.heading}>Your Events</div>
-                <div className={styles.cardContainer}>
+                <div className={`${layout === "navbar" ? styles.cardNavStyle: layout==="sidebar"? styles.cardSideStyle : styles.cardGridStyle}`}>
                     {cardData.map((item, key) => (
                         <Cards key={key} image={item.image} date={item.date} eventName={item.eventName} location={item.location} handleModal={handleModal}
                         />
@@ -29,6 +29,7 @@ const MultipleData = ({ cardData }) => {
                 <Modal handleModal={handleModal} dataNumber={3} />
             </div>)}
         </div>
+
     )
 }
 
