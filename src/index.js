@@ -8,7 +8,7 @@ const layout = document.currentScript.getAttribute('data-layout');
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-   <App layout={"navbar"} />
+   <App layout={layout} />
   </React.StrictMode>
 );
 
