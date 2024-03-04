@@ -17,16 +17,27 @@
     background: linear-gradient(118deg, rgba(36, 36, 36, 1) 0%, rgba(0, 0, 0, 1) 100%);
 }
 
-.gridContainer{
-    padding: 50px;
-    background: linear-gradient(118deg, rgba(36, 36, 36, 1) 0%, rgba(0, 0, 0, 1) 100%);
-}
 .cardSideStyle {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
     margin: 30px;
 }
+
+.gridContainer {
+    padding: 50px;
+    background: linear-gradient(118deg, rgba(36, 36, 36, 1) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.cardGridStyle {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    row-gap: 30px;
+}
+
+
 
 .blur {
     overflow: hidden;
@@ -37,15 +48,6 @@
     font-size: 35px;
     color: white;
     font-weight: 900;
-}
-
-.cardGridStyle {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* Three columns in each row */
-    justify-items: center;
-    row-gap: 30px;
 }
 
 
