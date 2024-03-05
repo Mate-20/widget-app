@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import styles from './multipledata.style.module.css'
 import Cards from "./Cards"
 import Modal from "./Modal"
 import { createUseStyles } from 'react-jss';
 const useStyles = createUseStyles({
     body: ({ theme }) => ({
-        background: theme === 'dark' ? 'var(--dark-gradient)' : theme === "light"?'var(--light-gradient)':"none"
+        background: theme === 'dark' ? 'var(--dark-gradient)' : theme === "light"?'var(--light-gradient)':'var(--dark-gradient)'
     }),
     navContainer: {
         height: 'fit-content',
@@ -40,7 +39,7 @@ const useStyles = createUseStyles({
     },
     heading:({theme})=>({
         fontSize: 35,
-        color: theme === "dark" ? "white":theme==="light"?"#121211":"" ,
+        color: theme === "dark" ? "white":theme==="light"?"#121211":"white" ,
         fontWeight: 900,
     }),
     modal: {
@@ -51,7 +50,7 @@ const useStyles = createUseStyles({
     },
     blur: {
         overflow: "hidden",
-        filter: blur(3),
+        filter: 'blur(3)',
     },
 });
 const MultipleData = ({ cardData, layout, theme }) => {

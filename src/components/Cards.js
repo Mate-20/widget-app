@@ -1,11 +1,11 @@
 import React from 'react'
-import styles from './cards.style.module.css'
 import { IoLocationOutline } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
     card:({theme})=>({
+        border : '1px solid black',
         backgroundColor: 'rgb(233, 233, 233)',
         width: 350,
         borderRadius: 15,
