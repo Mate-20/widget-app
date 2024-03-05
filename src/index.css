@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --dark-gradient: linear-gradient(118deg, rgba(36, 36, 36, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  --light-gradient: linear-gradient(118deg, rgba(224,224,224,1) 0%, rgba(255,255,255,1) 100%);
+  /* Add more variables as needed */
+}

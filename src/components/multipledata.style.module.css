@@ -1,6 +1,6 @@
 .navContainer {
     height: fit-content;
-    width: 100vw;
+    width: 100%;
     overflow-x: scroll;
     background: linear-gradient(118deg, rgba(36, 36, 36, 1) 0%, rgba(0, 0, 0, 1) 100%);
 }
@@ -8,7 +8,6 @@
 .cardNavStyle {
     column-gap: 30px;
     display: flex;
-    flex-wrap: nowrap;
     margin: 30px;
 }
 
@@ -38,8 +37,6 @@
     justify-items: center;
     row-gap: 30px;
 }
-
-
 
 .blur {
     overflow: hidden;
