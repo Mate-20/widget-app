@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './singledata.style.module.css'
-import Modal from "./Modal"
+import CalendarModal from './calendar';
 import { IoLocationOutline } from "react-icons/io5";
 
 const SingleData = ({ cardData }) => {
@@ -42,7 +42,7 @@ const SingleData = ({ cardData }) => {
                 <div className={styles.modal}>
                     <div className={styles.schedule}>Schedule</div>
                     {/* We dont want to show the some of the things in form if only single data is there, so we are passing date as 1*/}
-                    <Modal handleModal={handleModal} dataNumber={1}/>
+                    <CalendarModal handleModal={handleModal} dataNumber={1}/>
                 </div>
             </div>
         </div>

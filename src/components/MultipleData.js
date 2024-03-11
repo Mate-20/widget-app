@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Cards from "./Cards"
-import Modal from "./Modal"
 import { createUseStyles } from 'react-jss';
+import CalendarModal from './calendar';
+
 const useStyles = createUseStyles({
     body: ({ theme }) => ({
         background: theme === 'dark' ? 'var(--dark-gradient)' : theme === "light"?'var(--light-gradient)':'var(--dark-gradient)'
@@ -46,11 +47,11 @@ const useStyles = createUseStyles({
         position: "absolute",
         left: "50%",
         top: "50%",
-        transform: "translate("-50%", "-50%")"
+        transform: "translate(-50%, -50%)" 
     },
     blur: {
         overflow: "hidden",
-        filter: 'blur(3)',
+        filter: 'blur(3px)',
     },
 });
 const MultipleData = ({ cardData, layout, theme }) => {
@@ -73,7 +74,7 @@ const MultipleData = ({ cardData, layout, theme }) => {
           </div>
           {IsModalOpen && (
             <div className={classes.modal}>
-              <Modal handleModal={handleModal} dataNumber={3} />
+              <CalendarModal handleModal={handleModal} dataNumber={3} />
             </div>
           )}
         </div>

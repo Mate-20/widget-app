@@ -1,37 +1,22 @@
-import { useState } from "react"
-import MultipleData from "./components/MultipleData"
-import SingleData from "./components/SingleData"
-import marathon from './images/marathon.png'
-import tedx from './images/tedx.png'
-import theatre from './images/theatre.jpg'
-import './App.css'
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import DataHandle from './components/DataHandle';
+import ColorPalette from './components/ColorPalette';
+import CalendarModal from './components/calendar';
 
-const App = ({layout, theme}) => {
-  const [IsModalOpen, SetIsModalOpen] = useState(false)
-
-const cardData = [
-  { image: marathon, eventName: "Marathon", date: "February 3 - 7, 2024", location: "Berlin, Germany" },
-  { image:tedx, eventName: "Ted X", date: "February 3 - 7, 2024", location: "Tokyo, Japan" },
-  { image: theatre, eventName: "Andha Yug", date: "February 3 - 7, 2024", location: "Delhi, India" },
-  { image: theatre, eventName: "Andha Yug", date: "February 3 - 7, 2024", location: "Delhi, India" },
-  { image: theatre, eventName: "Andha Yug", date: "February 3 - 7, 2024", location: "Delhi, India" },
-  { image: marathon, eventName: "Marathon", date: "February 3 - 7, 2024", location: "Berlin, Germany" },
-  { image: marathon, eventName: "Marathon", date: "February 3 - 7, 2024", location: "Berlin, Germany" },
-  { image: marathon, eventName: "Marathon", date: "February 3 - 7, 2024", location: "Berlin, Germany" },
-  { image: marathon, eventName: "Marathon", date: "February 3 - 7, 2024", location: "Berlin, Germany" }
-]
-
-  const handleModal = (IsOpen) => {
-    SetIsModalOpen(IsOpen)
-  }
+const App = () => {
   return (
-    <div className="container">
-      {cardData.length === 1 
-        ? <SingleData cardData={cardData} /> 
-          : <MultipleData cardData={cardData} layout={layout} theme={theme}/>
-      }
+    <div>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/data' element={<DataHandle/>} />
+        <Route path='/palette' element={<ColorPalette/>} />
+        <Route path='/slots' element={<CalendarModal/>} />
+      </Routes>
     </div>
-  );
-}
+  )
+};
+
 
 export default App

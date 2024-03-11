@@ -2,14 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-
-const layout = document.currentScript.getAttribute('data-layout');
-const theme = document.currentScript.getAttribute('color-theme')
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// const layout = document.currentScript.getAttribute('data-layout');
+// const theme = document.currentScript.getAttribute('color-theme')
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-   <App layout={layout} theme={theme} />
+    <Router>
+      <Routes>
+        <Route path="/*" element={<App />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
