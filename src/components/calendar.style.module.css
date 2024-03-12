@@ -1,22 +1,38 @@
 .container {
     display: flex;
+    position: relative;
     justify-content: center;
     border: 1px solid rgb(204, 204, 204);
     border-radius: 10px;
-    /* margin: 20px; */
     padding: 20px;
+    height: 500px;
     background-color: white;
+}
+.containerDark{
+    background-color: rgb(24, 24, 24);
+}
+.themeIcon{
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    cursor: pointer;
+}
+.themeIcon:hover{
+    transition-duration: .2s;
+    filter: drop-shadow(1px 1px 1px black);
 }
 .calendarBtns {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 41px;
 }
 .calendarBtns button{
     margin-left: 20px;
     margin-right: 20px;
     cursor: pointer;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
 }
 
 .calendarGrid {
@@ -32,7 +48,9 @@
     justify-content: center;
     font-weight: bold;
 }
-
+.daynameDark{
+    color: white;
+}
 .calendardatebox {
     color: grey;
     display: flex;
@@ -41,8 +59,12 @@
     height: 55px;
     width: 60px;
 }
-.todaysDate div{
-    color: black;
+.todaysDateLight div{
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+.todaysDateDark{
+    color: white;
     font-weight: bold;
 }
 .scheduledDate div{

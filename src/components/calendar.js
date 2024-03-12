@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './calendar.style.module.css'
 import RegisterForm from './RegisterForm';
 import schedule from '../eventdata/timeslots.json'
+import DarkModeIcon from '../icons/darkmode.svg'
+import LightModeIcon from '../icons/lightmode.svg'
+import PrevArrowIcon from '../icons/leftarrow.svg'
+import NextArrowIcon from '../icons/rightarrow.svg'
 
 const CalendarModal = (props) => {
 
@@ -11,6 +15,7 @@ const CalendarModal = (props) => {
     const [selectedDate, setSelectedDate] = useState("")
     const [selectedTimeSlot, setSelectedTimeSlot] = useState("")
     const [IsFormOpen, SetIsFormOpen] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
 
     const handleTimeSlot = (slot) => {
@@ -43,7 +48,9 @@ const CalendarModal = (props) => {
         setCalendarDate(nextMonth);
     };
 
-
+    const handleThemeChange = () => {
+        setIsDarkMode(!isDarkMode)
+    }
 
 
     const renderDays = () => {
@@ -54,7 +61,7 @@ const CalendarModal = (props) => {
         const dayNames = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
         for (let i = 0; i < dayNames.length; i++) {
             days.push(
-                <div key={`dayName-${i}`} className={styles.dayname}>
+                <div key={`dayName-${i}`} className={`${styles.dayname} ${isDarkMode ? styles.daynameDark : ""}`}>
                     {dayNames[i]}
                 </div>
             );
@@ -75,19 +82,19 @@ const CalendarModal = (props) => {
                 return i === scheduledDate.getDate() && calendarDate.getMonth() === scheduledDate.getMonth() && calendarDate.getFullYear() === scheduledDate.getFullYear();
             }).some(Boolean);
 
-            let classNames = `${styles.calendardatebox} ${isTodaysDate ? styles.todaysDate : ''} ${isScheduledDate ? styles.scheduledDate : ''} `;
+            const todaysDateClass = isTodaysDate ? (isDarkMode ? styles.todaysDateDark : styles.todaysDateLight) : '';
+            let classNames = `${styles.calendardatebox} ${todaysDateClass} ${isScheduledDate ? styles.scheduledDate : ''} `;
             // Handle click on scheduled dates
             const handleClick = () => {
                 const currentDateObject = new Date(calendarDate.getFullYear(), calendarDate.getMonth(), i);
                 const matchingEntry = schedule.MarchSchedule.find(entry => {
                     const entryDate = new Date(entry.date);
-                    return entryDate.getDate() === currentDateObject.getDate() && entryDate.getFullYear() === currentDateObject.getFullYear();
+                    return entryDate.getDate() === currentDateObject.getDate() && entryDate.getFullYear() === currentDateObject.getFullYear() && entryDate.getMonth() === currentDateObject.getMonth();
                 });
                 const timeSlots = matchingEntry ? matchingEntry.timeSlots : [];
                 setSelectedDate(currentDateObject);
                 setIsDateClicked(timeSlots.length > 0);
                 setSelectedTimeSlots(timeSlots);
-                console.log(classNames)
             };
 
             days.push(
@@ -101,17 +108,17 @@ const CalendarModal = (props) => {
 
     return (
         <div>
-            {!IsFormOpen && (<div className={styles.container}>
+            {!IsFormOpen && (<div className={`${styles.container} ${isDarkMode ? styles.containerDark : ""}`}>
                 <div className={styles.calendar}>
                     <div className={styles.calendarBtns}>
-                        <button onClick={handlePrevMonth}>Prev</button>
-                        <h2>{calendarDate.toLocaleString('default', { month: 'long', year: 'numeric' })}</h2>
-                        <button onClick={handleNextMonth}>Next</button>
+                        <button onClick={handlePrevMonth}><img src={PrevArrowIcon} alt='prev'/></button>
+                        <h2 style={{ color: isDarkMode ? "white" : "black" }}>{calendarDate.toLocaleString('default', { month: 'long', year: 'numeric' })}</h2>
+                        <button onClick={handleNextMonth}><img src={NextArrowIcon} alt='next'/></button>
                     </div>
                     <div className={styles.calendarGrid}>{renderDays()}</div>
                 </div>
                 {isDateClicked && <div className={styles.timeSlotsContainer}>
-                    <h3>Time Slots for {selectedDate.toLocaleString('default', { month: 'long', day: 'numeric', year: 'numeric' })}</h3>
+                    <h3 style={{ color: isDarkMode ? "white" : "black" }}>Time Slots for {selectedDate.toLocaleString('default', { month: 'long', day: 'numeric', year: 'numeric' })}</h3>
                     {selectedTimeSlots.map((slot, index) => (
                         <div className={styles.timeSlots}>
                             <div className={`${styles.timeSlot} ${selectedTimeSlot === slot ? styles.selectedTimeSlot : ''}`} key={index} onClick={() => handleTimeSlot(slot)}>{slot}</div>
@@ -119,9 +126,14 @@ const CalendarModal = (props) => {
                         </div>
                     ))}
                 </div>}
+                <div className={styles.themeIcon} onClick={handleThemeChange}>
+                    {isDarkMode ? <img src={LightModeIcon} width={30} height={30} /> :
+                        <img src={DarkModeIcon} width={30} height={30} />}
+                </div>
             </div>)}
-            {IsFormOpen && (<div className={styles.container}>
-                <RegisterForm handleFormModal={handleFormModal} dataNumber={props.dataNumber} />
+
+            {IsFormOpen && (<div>
+                <RegisterForm darkTheme = {isDarkMode} handleFormModal={handleFormModal} dataNumber={props.dataNumber} />
             </div>)}
         </div>
     );

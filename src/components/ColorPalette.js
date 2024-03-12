@@ -27,7 +27,7 @@ const ColorPalette = () => {
                 <div className={styles.imgContainer}>
                     <img className={styles.image} src={imageSrc} alt="Uploaded Image" />
                 </div>
-                {imageSrc && (<Palette src={imageSrc}>
+                {/* {imageSrc && (<Palette src={imageSrc}>
                     {({ data, loading, error }) => {
                         if (loading) return <div>Loading...</div>;
                         if (error) return <div>Error: {error.message}</div>;
@@ -47,7 +47,8 @@ const ColorPalette = () => {
                         );
                     }}
                 </Palette>
-                )}</div>
+                )} */}
+                </div>
         </div>
     )
 }
