@@ -1,0 +1,78 @@
+.container {
+    height: 100vh;
+    background: linear-gradient(118deg, rgba(139, 195, 170, 1) 0%, rgba(129, 210, 244, 1) 36%, rgba(88, 221, 244, 1) 70%, rgba(139, 195, 170, 1) 100%);
+    background-size: 300% 300%;
+    animation: gradientAnimation 5s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.SearchFormContainer {
+    min-width: 40vw;
+    min-height: 400px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.btns{
+    top: 20%;
+    position: absolute;
+}
+.btns button{
+    background: rgba(29, 29, 29, 0.411);
+    border: none;
+    color:white;
+    padding: 5px 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.btns button:hover{
+    transition-duration: .2s;
+    background-color: rgb(29, 29, 29);
+}
+.btns .activeBtn{
+    border-bottom: 2px solid black;
+}
+.search {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.103);
+    width: 100%;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.search img {
+    height: 40px;
+    margin-right: 10px;
+}
+.search input {
+    width: 100%;
+    height: 40px;
+    background: none;
+    border: none;
+    font-size: 25px;
+    font-weight: 600;
+}
+.search input::placeholder{
+    color: rgb(29, 29, 29);
+}
+.search input:focus {
+    outline: none;
+}
