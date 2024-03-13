@@ -15,7 +15,6 @@ const App = () => {
         <Route path='/palette' element={<ColorPalette/>} />
         <Route path='/slots' element={<CalendarModal/>} />
         <Route path='/addevent' element={<AddEvent/>} />
-
       </Routes>
     </div>
   )

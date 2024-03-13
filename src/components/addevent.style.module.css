@@ -4,6 +4,7 @@
     background-size: 300% 300%;
     animation: gradientAnimation 5s ease-in-out infinite;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -23,33 +24,25 @@
 }
 
 .SearchFormContainer {
-    min-width: 40vw;
+    width: 50vw;
     min-height: 400px;
     padding: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
-.btns{
-    top: 20%;
-    position: absolute;
-}
-.btns button{
-    background: rgba(29, 29, 29, 0.411);
-    border: none;
-    color:white;
-    padding: 5px 10px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-left: 5px;
-}
-.btns button:hover{
-    transition-duration: .2s;
+.btn{
     background-color: rgb(29, 29, 29);
-}
-.btns .activeBtn{
-    border-bottom: 2px solid black;
+    border-radius: 5px;
+    border: none;
+    width: fit-content;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
 }
 .search {
+    position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.103);
     width: 100%;
@@ -57,11 +50,24 @@
     display: flex;
     align-items: center;
     padding: 10px;
+    margin-bottom: 20px;
 }
-.search img {
+.search button{
+    background-color: rgba(255, 255, 255, 0.185);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
     height: 40px;
     margin-right: 10px;
+    border: none;
 }
+
+.search button:hover{
+    transition-duration: .1s;
+    background-color: rgba(29, 29, 29, 0.253);
+}
+
 .search input {
     width: 100%;
     height: 40px;
@@ -75,4 +81,20 @@
 }
 .search input:focus {
     outline: none;
+}
+.dropdown{
+    position: absolute;
+    top: 100%;
+
+    width: 97%;
+}
+.dropdownItem{
+    border-bottom: 1px solid rgb(202, 202, 202);
+    font-size: 20px;
+    padding: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+.dropdownItem:hover{
+    background-color: rgba(255, 255, 255, 0.918);
 }

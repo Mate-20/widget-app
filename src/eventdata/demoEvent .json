@@ -1,0 +1,18 @@
+[
+    {
+        "id" : 1,
+        "name":"HORN Ok Food Festival",
+        "description" : "A food fest including a variety of drinks and food that you will savour for your entire life",
+        "location" : "Delhi",
+        "startDate" : "09/20/2024",
+        "endDate" : "09/21/2024"
+    },
+    {
+        "id" : 2,
+        "name":"Great Indian Food Festival",
+        "description" : "A food fest including a variety of drinks and food that you will savour for your entire life",
+        "location" : "Gurgaon",
+        "startDate" : "06/14/2024",
+        "endDate" : "06/17/2024"
+    }
+]

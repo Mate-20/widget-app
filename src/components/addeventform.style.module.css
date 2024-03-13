@@ -1,20 +1,28 @@
-.form{
+.container {
+    width: 100%;
+}
+
+.form {
     display: flex;
 }
-.leftForm{
-    width: 50%;
+
+.leftform {
+    width: 60%;
 }
-.eventname{
+
+.eventname {
     font-size: 40px;
     background: none;
     border: none;
     font-weight: 800;
-    color: rgb(29,29,29);
+    color: rgb(29, 29, 29);
 }
-.eventname:focus{
+
+.eventname:focus {
     outline: none;
 }
-.dateContainer{
+
+.dateContainer {
     display: flex;
     background-color: rgba(255, 255, 255, 0.205);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -23,21 +31,25 @@
     margin-top: 20px;
     justify-content: space-between;
 }
-.dateContainer .heading{
+
+.dateContainer .heading {
     color: rgb(29, 29, 29);
     font-size: 20px;
     font-weight: bold;
     margin-left: 10px;
 }
-.dateContainer .input{
+
+.dateContainer .input {
     background-color: rgba(255, 255, 255, 0.205);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.dateIconContainer{
+
+.dateIconContainer {
     display: flex;
     align-items: center;
 }
-.locationContainer{
+
+.locationContainer {
     background-color: rgba(255, 255, 255, 0.205);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
@@ -46,20 +58,24 @@
     display: flex;
     align-items: center;
 }
-.locationContainer input{
+
+.locationContainer input {
     margin-left: 10px;
     font-weight: bold;
     font-size: 20px;
     border: none;
     background: none;
 }
-.locationContainer input::placeholder{
+
+.locationContainer input::placeholder {
     color: rgb(29, 29, 29);
 }
-.locationContainer input:focus{
+
+.locationContainer input:focus {
     outline: none;
 }
-.descContainer{
+
+.descContainer {
     display: flex;
     background-color: rgba(255, 255, 255, 0.205);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -68,27 +84,44 @@
     margin-top: 20px;
     cursor: pointer;
 }
-.descContainer:hover{
-    transition-duration: .2s;
-    background-color: rgba(255, 255, 255, 0.411);
+
+.descContainer input {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    background: none;
 }
-.descContainer .heading{
+
+.descContainer input::placeholder {
+    color: rgb(29, 29, 29);
+}
+
+.descContainer input:focus {
+    outline: none;
+}
+
+.descContainer .heading {
     color: rgb(29, 29, 29);
     font-size: 20px;
     font-weight: bold;
     margin-left: 10px;
 }
-.imageContainer{
+
+.imageContainer {
+    width: 40%;
     margin-left: 20px;
     display: flex;
     flex-direction: column;
 }
-.imageContainer label{
+
+.imageContainer label {
     font-size: 20px;
     font-weight: 600;
     color: rgb(29, 29, 29);
 }
-.imageContainer input{
+
+.imageContainer .promptInput {
     margin-top: 20px;
     background-color: rgba(255, 255, 255, 0.205);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -97,27 +130,73 @@
     padding: 10px 20px;
     border-radius: 5px;
 }
-.imageContainer button{
-    cursor: pointer;
+
+.imageContainer .btns {
     margin-top: 10px;
-    background-color: rgb(29,29,29);
+    display: flex;
+    justify-content: space-between;
+}
+
+.imageContainer .btns button {
+    cursor: pointer;
+    background-color: rgb(29, 29, 29);
     border: none;
-    width: 100%;
+    width: fit-content;
     border-radius: 40px;
     padding: 10px;
     color: white;
     font-size: 16px;
 }
-.imageContainer img{
+
+.imageContainer .btns input {
+    width: 45%;
+}
+
+.imageContainer .btns input::file-selector-button {
+    cursor: pointer;
+    background-color: rgb(29, 29, 29);
+    border: none;
+    width: fit-content;
+    border-radius: 40px;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.imageContainer .loader {
     margin-top: 20px;
-    width: 300px;
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainer .loader div {
+    border: 5px solid #EAF0F6;
+    border-radius: 50%;
+    border-top: 5px solid #FF7A59;
+    width: 30px;
+    height: 30px;
+    animation: spinner 2s linear infinite;
+}
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+.imageContainer img {
+    margin-top: 20px;
+    width: 400px;
     height: 300px;
     border-radius: 10px;
 }
-.submitBtn{
+
+.submitBtn {
     cursor: pointer;
     margin-top: 20px;
-    background-color: rgb(29,29,29);
+    background-color: rgb(29, 29, 29);
     border: none;
     width: 100%;
     border-radius: 40px;
