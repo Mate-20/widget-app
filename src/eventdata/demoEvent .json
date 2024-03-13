@@ -14,5 +14,21 @@
         "location" : "Gurgaon",
         "startDate" : "06/14/2024",
         "endDate" : "06/17/2024"
+    },
+    {
+        "id" : 3,
+        "name":"Painting Fest",
+        "description" : "A area filled with many canvas to paint on. Come and paint your imagination",
+        "location" : "Ney York",
+        "startDate" : "06/14/2024",
+        "endDate" : "06/17/2024"
+    },
+    {
+        "id" : 4,
+        "name":"Tomartina Tomato Fest",
+        "description" : "A annual tomato in which streets get filled with tomatoes and people throw tomatoes at each other for fun",
+        "location" : "Italy",
+        "startDate" : "06/14/2024",
+        "endDate" : "06/17/2024"
     }
 ]

@@ -3,8 +3,12 @@ import { Button, CalendarCell, CalendarGrid, DateInput, DateRangePicker, DateSeg
 import styles from './rangepicker.style.module.css'
 
 const RangePicker = () => {
+
+    const handleDateChange = (range)=>{
+        console.log(range)
+    }
     return (
-        <DateRangePicker className={styles.reactAriaDateRangePicker}>
+        <DateRangePicker className={styles.reactAriaDateRangePicker} onChange={handleDateChange}>
             <Label></Label>
             <Group className={styles.reactAriaGroup}>
                 <DateInput className={styles.reactAriaDateInput} slot="start">

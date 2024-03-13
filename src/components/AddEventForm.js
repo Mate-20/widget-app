@@ -5,6 +5,7 @@ import LocationIcon from '../icons/location.svg'
 import DateIcon from '../icons/calendar.svg'
 import DescIcon from '../icons/page.svg'
 import Placeholder from '../assets/placeholder.png'
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const AddEventForm = (props) => {
   // Defining the States
@@ -26,7 +27,8 @@ const AddEventForm = (props) => {
     setEventName(props.selectedEvent?.name || '');
     setLocation(props.selectedEvent?.location || '')
     setDescription(props.selectedEvent?.description || '')
-}, [props.selectedEvent]);
+  }, [props.selectedEvent]);
+
 
   const handleImageChange = (e) => {
     // Handle image upload and set state for image preview
@@ -48,10 +50,28 @@ const AddEventForm = (props) => {
 
   };
 
-  const generatePoster = () => {
-    setIsLoading(true);
+  const generatePrompt = async () => {
+    try {
+      const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
+      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const prompt = `Location is ${location}. Description is ${description}. Generate a prompt without pointers for stable diffusion to generate a NICE ILLUSTRATION PAINTING/ART for the given location and description.`
+      const result = await model.generateContent(prompt);
+      const response = result.response;
+      const text = await response.text();
+      setPrompt(text);
+      console.log(text)
+    } catch (error) {
+      console.error("Error generating prompt:", error);
+    }
+  }
+  useEffect(() => {
+    generatePoster()
+  }, [prompt])
+
+  const generatePoster = async () => {
     const apiKey = process.env.REACT_APP_RUNPOD_API_KEY;
     if (prompt) {
+      setIsLoading(true);
       const options = {
         method: 'POST',
         headers: {
@@ -73,20 +93,19 @@ const AddEventForm = (props) => {
           }
         })
       };
-      fetch('https://api.runpod.ai/v2/sdxl/runsync', options)
-        .then(response => response.json())
-        .then(response => {
-          console.log(response)
-          setImage({ placeHolder: response.output.image_url, file: null })
-          setIsLoading(false);
-        })
-        .catch(err => {
-          console.error(err)
-          setIsLoading(false);
-        });
-      setPrompt("")
-    } else console.log("Enter some prompt")
+      try {
+        const response = await fetch('https://api.runpod.ai/v2/sdxl/runsync', options);
+        const responseData = await response.json();
+        console.log(responseData);
+        setImage({ placeHolder: responseData.output.image_url, file: null });
+      } catch (error) {
+        console.error("Error generating poster:", error);
+      }
+      setIsLoading(false);
+      setPrompt(""); // Clear prompt after generating the poster
+    }
   }
+
 
   const handleSubmit = (e) => {
     // Calling 12 hr format time method
@@ -150,9 +169,9 @@ const AddEventForm = (props) => {
         </div>
         <div className={styles.imageContainer}>
           <label className={styles.imagetext}>Upload / Generate Poster</label>
-          <input className={styles.promptInput} value={prompt} placeholder='Enter The Prompt' onChange={(e) => setPrompt(e.target.value)} />
+          {/* <input className={styles.promptInput} value={prompt} placeholder='Enter The Prompt' onChange={(e) => setPrompt(e.target.value)} /> */}
           <div className={styles.btns}>
-            <button type='button' onClick={generatePoster}>Generate Poster</button>
+            <button type='button' onClick={generatePrompt}>Generate Poster</button>
             <input type="file" onChange={handleImageChange} />
           </div>
           {isLoading ? (

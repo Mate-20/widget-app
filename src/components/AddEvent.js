@@ -10,6 +10,7 @@ const AddEvent = () => {
     const [matchingEvents, setMatchingEvents] = useState([]);
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+    const [isFormBlur, setIsFormBlur] = useState(true)
 
     const filterEvents = (event) => {
         const eventWords = event.name.toLowerCase().split(" ");
@@ -29,6 +30,7 @@ const AddEvent = () => {
     const handleEventClick = (event) => {
         setIsDropdownOpen(false)
         setSelectedEvent(event);
+        setIsFormBlur(false)
     }
 
     return (
@@ -53,7 +55,9 @@ const AddEvent = () => {
                         </div>
                     )}
                 </div>
-                <AddEventForm selectedEvent={selectedEvent} />
+                <div className={`${isFormBlur ? styles.eventFormBlur : ""}`}>
+                    <AddEventForm selectedEvent={selectedEvent} />
+                </div>
             </form>
         </div>
     )
