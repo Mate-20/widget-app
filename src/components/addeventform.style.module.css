@@ -149,7 +149,7 @@
 }
 
 .imageContainer .btns input {
-    width: 45%;
+    width: 50%;
 }
 
 .imageContainer .btns input::file-selector-button {

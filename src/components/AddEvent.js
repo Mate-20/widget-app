@@ -5,12 +5,12 @@ import AddEventForm from './AddEventForm'
 import EventData from '../eventdata/demoEvent .json'
 
 const AddEvent = () => {
-    const [isSearchOpen, setIsSearchOpen] = useState(true)
     const [searchInput, setSearchInput] = useState("")
-    const [matchingEvents, setMatchingEvents] = useState([]);
-    const [selectedEvent, setSelectedEvent] = useState(null);
+    const [matchingEvents, setMatchingEvents] = useState([]); // All events that macthes ther search
+    const [selectedEvent, setSelectedEvent] = useState(null); // Event that we are selecting and sending to form
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const [isFormBlur, setIsFormBlur] = useState(true)
+    const [isFormDisbaled, setIsFormDisabled] = useState(true)
 
     const filterEvents = (event) => {
         const eventWords = event.name.toLowerCase().split(" ");
@@ -33,9 +33,16 @@ const AddEvent = () => {
         setIsFormBlur(false)
     }
 
+    const handleButtonClick = ()=>{
+        if(isFormBlur){
+            setIsFormBlur(false)
+        }
+        setIsFormDisabled(!isFormDisbaled)
+    }
+
     return (
         <div className={styles.container}>
-            <button onClick={() => setIsSearchOpen(!isSearchOpen)} className={`${styles.btn} ${!isSearchOpen ? styles.activeBtn : ""}`}>Add Event Manually</button>
+            <button className={styles.btn} onClick={handleButtonClick}>Add Event Manually</button>
             <form className={styles.SearchFormContainer} onSubmit={handleInputChange}>
                 <div className={styles.search}>
                     <input
@@ -56,7 +63,7 @@ const AddEvent = () => {
                     )}
                 </div>
                 <div className={`${isFormBlur ? styles.eventFormBlur : ""}`}>
-                    <AddEventForm selectedEvent={selectedEvent} />
+                    <AddEventForm selectedEvent={selectedEvent} formDisabled = {isFormDisbaled}/>
                 </div>
             </form>
         </div>
