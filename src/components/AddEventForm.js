@@ -61,7 +61,7 @@ const AddEventForm = (props) => {
       };
       reader.readAsDataURL(e.target.files[0]);
     } else {
-      toast.error("Wrong Image Type");
+      // toast.error("Wrong Image Type");
       image.file = null;
     }
   };
@@ -85,7 +85,7 @@ const AddEventForm = (props) => {
     // Updated data with new field
     const updatedData = [...existingData, newEvent]
 
-    toast.success("Event Listed");
+    // toast.success("Event Listed");
 
     // Storing data in local storage
     localStorage.setItem('newEvent', JSON.stringify(updatedData));
@@ -97,7 +97,7 @@ const AddEventForm = (props) => {
     setStartDate("");
     setLocation("");
     setImage({
-      placeHolder: defaultImage,
+      placeHolder: Placeholder,
       file: null
     })
   }
