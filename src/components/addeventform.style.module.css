@@ -206,6 +206,14 @@
     border-radius: 10px;
 
 }
+.imageContainer .imageHolder .logo{
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.678);
+}
 .submitBtn {
     cursor: pointer;
     margin-top: 20px;

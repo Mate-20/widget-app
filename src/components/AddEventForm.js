@@ -20,6 +20,8 @@ const AddEventForm = (props) => {
     placeHolder: Placeholder,
     file: null
   });
+  const [logoUrl, setLogoUrl] = useState("")
+
   // We need to make a re render, else it wont show the changes in the form
   useEffect(() => {
     setEventName(props.selectedEvent?.name || '');
@@ -27,6 +29,7 @@ const AddEventForm = (props) => {
     setDescription(props.selectedEvent?.description || '')
     setStartDate(props.selectedEvent?.startDate || '')
     setEndDate(props.selectedEvent?.endDate || '')
+    setLogoUrl(props.selectedEvent?.logo || "")
   }, [props.selectedEvent]);
 
   useEffect(() => {
@@ -142,6 +145,7 @@ const AddEventForm = (props) => {
               <div>
                 <img src={image.placeHolder} alt="" />
                 <div className={styles.imageLocation}>{location}</div>
+                <img src={logoUrl} alt='logo' className={styles.logo}></img>
               </div>
             )}
           </div>
