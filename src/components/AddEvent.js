@@ -13,8 +13,7 @@ const AddEvent = () => {
     const [isFormDisbaled, setIsFormDisabled] = useState(true)
 
     const filterEvents = (event) => {
-        const eventWords = event.name.toLowerCase().split(" ");
-        return eventWords.includes(searchInput.toLowerCase());
+        return event.tags.includes(searchInput.toLowerCase());
     };
     // Update matching events as user types
     const handleInputChange = (e) => {

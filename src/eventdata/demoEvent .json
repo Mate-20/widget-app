@@ -5,7 +5,8 @@
         "description" : "A food fest including a variety of drinks and food that you will savour for your entire life",
         "location" : "Delhi",
         "startDate" : "09/20/2024",
-        "endDate" : "09/21/2024"
+        "endDate" : "09/21/2024",
+        "tags" : ["food", "festival", "drinks", "gathering","hornok", "horn","fest"]
     },
     {
         "id" : 2,
@@ -13,15 +14,17 @@
         "description" : "A food fest including a variety of drinks and food that you will savour for your entire life",
         "location" : "Gurgaon",
         "startDate" : "06/14/2024",
-        "endDate" : "06/17/2024"
+        "endDate" : "06/17/2024",
+        "tags" : ["food", "festival", "drinks", "gathering", "great indian food festival","fest"]
     },
     {
         "id" : 3,
         "name":"Painting Fest",
-        "description" : "A area filled people and canvas boards to paint on. Come and paint your imagination",
+        "description" : "A area filled with people and canvas boards to paint on. Come and paint your imagination",
         "location" : "Ney York",
         "startDate" : "06/14/2024",
-        "endDate" : "06/17/2024"
+        "endDate" : "06/17/2024",
+        "tags" : ["paint", "painting", "colors", "color", "fest"]
     },
     {
         "id" : 4,
@@ -29,6 +32,7 @@
         "description" : "A annual tomato in which streets get filled with tomatoes and people throw tomatoes at each other for fun",
         "location" : "Italy",
         "startDate" : "06/14/2024",
-        "endDate" : "06/17/2024"
+        "endDate" : "06/17/2024",
+        "tags" : ["tomato", "tomartina", "holi", "gathering", "fight"]
     }
 ]

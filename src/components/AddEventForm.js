@@ -25,7 +25,16 @@ const AddEventForm = (props) => {
     setEventName(props.selectedEvent?.name || '');
     setLocation(props.selectedEvent?.location || '')
     setDescription(props.selectedEvent?.description || '')
+    setStartDate(props.selectedEvent?.startDate || '')
+    setEndDate(props.selectedEvent?.endDate || '')
   }, [props.selectedEvent]);
+
+  useEffect(() => {
+    // As soon as location changes, we want to trigger the poster generation. We cant put this in above useEffect, as setState is async, if will pass the location and description just after setting it, it will be passed empty
+    if (location) {
+      generatePrompt(location, description)
+    }
+  }, [description, location])
 
   useEffect(() => {
     // Update the image state when generatedImage change
@@ -95,44 +104,49 @@ const AddEventForm = (props) => {
 
   return (
     <div className={styles.container}>
-        <form onSubmit={handleSubmit} className={styles.form} >
-          <div className={styles.leftform}>
-            <div className="">
-              <input type="text" className={styles.eventname} value={eventName} onChange={(e) => setEventName(e.target.value)} required placeholder='Event Name' disabled={props.formDisabled} />
-            </div>
-            <div className={styles.dateContainer}>
-              <div className={styles.dateIconContainer}>
-                <img src={DateIcon} alt='SearchIcon' />
-                <span className={styles.heading}>Add Date</span>
-              </div>
-              <div className={styles.input}><RangePicker /></div>
-            </div>
-            <div className={styles.locationContainer}>
-              <img src={LocationIcon} alt='LocationIcon' />
-              <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} required placeholder='Location' disabled={props.formDisabled} />
-            </div>
-            <div className={styles.descContainer}>
-              <img src={DescIcon} alt='DescIcon' />
-              <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} required placeholder='Description' disabled={props.formDisabled} />
-            </div>
-            <button type="submit" className={styles.submitBtn} disabled={props.formDisabled}>ADD EVENT</button>
+      <form onSubmit={handleSubmit} className={styles.form} >
+        <div className={styles.leftform}>
+          <div className="">
+            <input type="text" className={styles.eventname} value={eventName} onChange={(e) => setEventName(e.target.value)} required placeholder='Event Name' disabled={props.formDisabled} />
           </div>
-          <div className={styles.imageContainer}>
-            <label className={styles.imagetext}>Upload / Generate Poster</label>
-            {/* <input className={styles.promptInput} value={prompt} placeholder='Enter The Prompt' onChange={(e) => setPrompt(e.target.value)} /> */}
-            <div className={styles.btns}>
-              <button type='button' onClick={handlePoster} disabled={props.formDisabled}>Generate Poster</button>
-              <input type="file" onChange={handleImageChange} disabled={props.formDisabled} />
+          <div className={styles.dateContainer}>
+            <div className={styles.dateIconContainer}>
+              <img src={DateIcon} alt='SearchIcon' />
+              <span className={styles.heading}>Add Date</span>
             </div>
+            <div className={styles.input}><RangePicker startDate={startDate} endDate={endDate} /></div>
+          </div>
+          <div className={styles.locationContainer}>
+            <img src={LocationIcon} alt='LocationIcon' />
+            <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} required placeholder='Location' disabled={props.formDisabled} />
+          </div>
+          <div className={styles.descContainer}>
+            <img src={DescIcon} alt='DescIcon' />
+            <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} required placeholder='Description' disabled={props.formDisabled} />
+          </div>
+          <button type="submit" className={styles.submitBtn} disabled={props.formDisabled}>ADD EVENT</button>
+        </div>
+        <div className={styles.imageContainer}>
+          <label className={styles.imagetext}>Upload / Generate Poster</label>
+          {/* <input className={styles.promptInput} value={prompt} placeholder='Enter The Prompt' onChange={(e) => setPrompt(e.target.value)} /> */}
+          <div className={styles.btns}>
+            <button type='button' onClick={handlePoster} disabled={props.formDisabled}>Generate Poster</button>
+            <input type="file" onChange={handleImageChange} disabled={props.formDisabled} />
+          </div>
+          <div className={styles.imageHolder}>
             {isLoading ? (
               <div className={styles.loader}>
                 <div></div>
               </div>
             ) : (
-              <img src={image.placeHolder} alt="" />
+              <div>
+                <img src={image.placeHolder} alt="" />
+                <div className={styles.imageLocation}>{location}</div>
+              </div>
             )}
           </div>
-        </form>
+        </div>
+      </form>
     </div>
   )
 }
