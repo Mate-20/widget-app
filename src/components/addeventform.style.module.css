@@ -1,23 +1,18 @@
-.container {
-    width: 100%;
-}
-
 .form {
     display: flex;
-}
-
-.leftform {
-    width: 60%;
 }
 
 .eventname {
     font-size: 40px;
     background: none;
     border: none;
-    font-weight: 800;
-    color: rgb(29, 29, 29);
+    font-weight: 700;
+    /* color: rgb(29, 29, 29); */
+    color: white;
 }
-
+.eventname::placeholder{
+    color: rgba(255, 255, 255, 0.562);
+}
 .eventname:focus {
     outline: none;
 }
@@ -37,6 +32,9 @@
     font-size: 20px;
     font-weight: bold;
     margin-left: 10px;
+}
+.dateContainer .disabled{
+    color: var(--disabled-color);
 }
 
 .dateContainer .input {
@@ -84,44 +82,50 @@
     margin-top: 20px;
     cursor: pointer;
 }
-
+.descContainer .headingContainer{
+    width: 90%;
+}
+.descContainer .descHeading {
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(29, 29, 29);
+    margin-left: 10px;
+}
+.descContainer .disabled{
+    color: var(--disabled-color);
+}
 .descContainer input {
+    width: 100%;
+    font-size: 16px;
+    color: black;
     margin-left: 10px;
-    font-weight: bold;
-    font-size: 20px;
-    border: none;
     background: none;
+    border: none;
 }
 
-.descContainer input::placeholder {
-    color: rgb(29, 29, 29);
+.modal {
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    height: 0;
+    transition: height .2s ease-in-out;
+    overflow: hidden;  
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.568);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-.descContainer input:focus {
-    outline: none;
+.modalOpen{
+    height: 100vh;
 }
-
-.descContainer .heading {
-    color: rgb(29, 29, 29);
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 10px;
-}
-
 .imageContainer {
-    width: 40%;
-    margin-left: 20px;
     display: flex;
     flex-direction: column;
+    margin-right: 25px;
 }
 
-.imageContainer label {
-    font-size: 20px;
-    font-weight: 600;
-    color: rgb(29, 29, 29);
-}
-
-.imageContainer .promptInput {
+/* .imageContainer .promptInput {
     margin-top: 20px;
     background-color: rgba(255, 255, 255, 0.205);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -129,45 +133,37 @@
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
-}
+} */
 
 .imageContainer .btns {
-    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.205);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
 }
 
-.imageContainer .btns button {
+.imageContainer .btns label {
     cursor: pointer;
-    background-color: rgb(29, 29, 29);
+    background-color: rgba(255, 255, 255, 0.301);
     border: none;
-    width: fit-content;
-    border-radius: 40px;
+    width:40%;
+    text-align: center;
+    border-radius: 5px;
     padding: 10px;
-    color: white;
     font-size: 16px;
 }
-
-.imageContainer .btns input {
-    width: 50%;
+.imageContainer .btns input{
+    display: none;
 }
-
-.imageContainer .btns input::file-selector-button {
-    cursor: pointer;
-    background-color: rgb(29, 29, 29);
-    border: none;
-    width: fit-content;
-    border-radius: 40px;
-    padding: 10px;
-    color: white;
-    font-size: 16px;
-}
-.imageContainer .imageHolder{
+.imageContainer .imageHolder {
     margin-top: 20px;
     position: relative;
     width: 400px;
     height: 300px;
 }
+
 .imageContainer .imageHolder .loader {
     width: 400px;
     height: 300px;
@@ -186,16 +182,24 @@
     height: 30px;
     animation: spinner 2s linear infinite;
 }
+
 @keyframes spinner {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .imageContainer .imageHolder img {
     width: 400px;
     height: 300px;
     border-radius: 10px;
 }
-.imageContainer .imageHolder .imageLocation{
+
+.imageContainer .imageHolder .imageLocation {
     position: absolute;
     bottom: 1%;
     left: 1%;
@@ -206,7 +210,8 @@
     border-radius: 10px;
 
 }
-.imageContainer .imageHolder .logo{
+
+.imageContainer .imageHolder .logo {
     position: absolute;
     top: 1%;
     left: 1%;
@@ -214,14 +219,38 @@
     height: 40px;
     background-color: rgba(255, 255, 255, 0.678);
 }
+
 .submitBtn {
     cursor: pointer;
     margin-top: 20px;
     background-color: rgb(29, 29, 29);
     border: none;
     width: 100%;
-    border-radius: 40px;
+    border-radius: 5px;
     padding: 10px;
     color: white;
     font-size: 20px;
+}
+
+@media (max-width: 1035px) {
+    .form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imageContainer {
+        margin-top: 40px;
+    }
+
+    .imageContainer .imageHolder {
+        width: 80%;
+        height: 40%;
+    }
+
+    .leftform {
+        width: 80%;
+    }
+}
+.disabled{
+    color: var(--disabled-color);
 }

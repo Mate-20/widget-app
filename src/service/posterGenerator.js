@@ -10,7 +10,7 @@ const usePosterGenerator = () => {
       setIsLoading(true);
       const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-      const promptText = `Location is ${location}. Description is ${description}. Generate a detailed single paragraph prompt without pointers for stable diffusion to generate a NICE ILLUSTRATION PAINTING/ART for the given location and description.`;
+      const promptText = `Generate a detailed single paragraph prompt without pointers for stable diffusion to generate a NICE ILLUSTRATION PAINTING/ART for the given location and description. Location is ${location}. Description is ${description}.`;
       const result = await model.generateContent(promptText);
       const response = result.response;
       const text = response.text();

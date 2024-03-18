@@ -32,8 +32,8 @@ const AddEvent = () => {
         setIsFormBlur(false)
     }
 
-    const handleButtonClick = ()=>{
-        if(isFormBlur){
+    const handleButtonClick = () => {
+        if (isFormBlur) {
             setIsFormBlur(false)
         }
         setIsFormDisabled(!isFormDisbaled)
@@ -41,7 +41,6 @@ const AddEvent = () => {
 
     return (
         <div className={styles.container}>
-            <button className={styles.btn} onClick={handleButtonClick}>Add Event Manually</button>
             <form className={styles.SearchFormContainer} onSubmit={handleInputChange}>
                 <div className={styles.search}>
                     <input
@@ -61,10 +60,11 @@ const AddEvent = () => {
                         </div>
                     )}
                 </div>
-                <div className={`${isFormBlur ? styles.eventFormBlur : ""}`}>
-                    <AddEventForm selectedEvent={selectedEvent} formDisabled = {isFormDisbaled}/>
-                </div>
+                <button type='button' className={styles.btn} onClick={handleButtonClick}>Add Event Manually</button>
             </form>
+            <div className={`${isFormBlur ? styles.eventFormBlur : ""}`}>
+                <AddEventForm selectedEvent={selectedEvent} formDisabled={isFormDisbaled} />
+            </div>
         </div>
     )
 }

@@ -1,15 +1,19 @@
 .container {
     height: 100vh;
-    background: linear-gradient(118deg, rgba(148,195,174,1) 0%, rgba(147,137,186,1) 30%, rgba(30,181,185,1) 70%, rgba(139,195,170,1) 100%);
-    background-size: 300% 300%;
-    animation: gradientAnimation 5s ease-in-out infinite;
+    width: 100vw;
+    /* background: linear-gradient(118deg, rgba(138,183,223,1) 0%, rgba(101,170,222,1) 25%, rgba(153,177,241,1) 51%, rgba(126,178,222,1) 80%, rgba(133,199,222,1) 100%); */
+    /* background-color: #3d5a80; */
+    background-color: #57cc99;
+    /* background-color: #6290c8; */
+    /* background-size: 300% 300%; */
+    /* animation: gradientAnimation 5s ease-in-out infinite; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-@keyframes gradientAnimation {
+/* @keyframes gradientAnimation {
     0% {
         background-position: 0% 50%;
     }
@@ -21,36 +25,33 @@
     100% {
         background-position: 0% 50%;
     }
-}
+} */
 
 .SearchFormContainer {
-    width: 50vw;
-    min-height: 400px;
-    padding: 10px;
+    width: 50%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
 }
 .btn{
     background-color: rgb(29, 29, 29);
+    height: 100%;
     border-radius: 5px;
     border: none;
     width: fit-content;
-    padding: 5px 10px;
     color: white;
     cursor: pointer;
 }
 .search {
+    width: 80%;
     position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: rgba(0, 0, 0, 0.103);
-    width: 100%;
+    background-color: rgba(255, 255, 255, 0.103);
     border-radius: 10px;
     display: flex;
     align-items: center;
     padding: 10px;
-    margin-bottom: 20px;
 }
 .search button{
     background-color: rgba(255, 255, 255, 0.185);
@@ -62,22 +63,20 @@
     margin-right: 10px;
     border: none;
 }
-
 .search button:hover{
     transition-duration: .1s;
     background-color: rgba(29, 29, 29, 0.253);
 }
-
 .search input {
     width: 100%;
-    height: 40px;
     background: none;
     border: none;
     font-size: 25px;
     font-weight: 600;
+    color: white;
 }
 .search input::placeholder{
-    color: rgb(29, 29, 29);
+    color: rgba(255, 255, 255, 0.452);
 }
 .search input:focus {
     outline: none;
@@ -101,4 +100,10 @@
 
 .eventFormBlur{
     filter: blur(5px);
+}
+
+@media (max-width : 615px){
+    .search{
+        width: 60%;
+    }
 }

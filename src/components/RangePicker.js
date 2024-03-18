@@ -3,7 +3,7 @@ import { Button, CalendarCell, CalendarGrid, DateInput, DateRangePicker, DateSeg
 import styles from './rangepicker.style.module.css'
 import { parseDate } from '@internationalized/date';
 
-const RangePicker = ({ startDate, endDate }) => {
+const RangePicker = ({ startDate, endDate, disabled }) => {
     const [startValue, setStartValue] = useState("2020-02-03");
     const [endValue, setEndValue] = useState("2020-02-03");
     const [value, setValue] = React.useState({
@@ -45,7 +45,7 @@ const RangePicker = ({ startDate, endDate }) => {
                 <DateInput className={styles.reactAriaDateInput} slot="end">
                     {(segment) => <DateSegment segment={segment} />}
                 </DateInput>
-                <Button className={styles.reactAriaButton}>▼</Button>
+                <Button className={styles.reactAriaButton} isDisabled={disabled}>▼</Button>
             </Group>
             <Popover className={styles.reactAriaPopover}>
                 <Dialog>

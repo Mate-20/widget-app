@@ -39,5 +39,16 @@
         "tags" : ["tomato", "tomartina", "holi", "gathering", "fight"],
         "logo" : "https://1000logos.net/wp-content/uploads/2021/11/logo-Paramount.png"
 
+    },
+    {
+        "id" : 5,
+        "name":"Film Festival",
+        "description" : "A annual film festival where people from all over India send in there directed films and they are shown in this festival on the large screen",
+        "location" : "Gurgaon",
+        "startDate" : "06/14/2024",
+        "endDate" : "06/17/2024",
+        "tags" : ["movie", "films", "movies", "fest", "festival", "acting","direction", "film"],
+        "logo" : "https://1000logos.net/wp-content/uploads/2021/11/logo-Paramount.png"
+
     }
 ]
