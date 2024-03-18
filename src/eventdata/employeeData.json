@@ -1,0 +1,9 @@
+[
+    {"id": "alvin@gmail.com", "name" :"Alvin", "initials":"A"},
+    {"id": "tony@gmail.com", "name" :"Tony", "initials":"T"},
+    {"id": "steve@gmail.com", "name" :"Steve", "initials":"S"},
+    {"id": "bruce@gmail.com", "name" :"Bruce", "initials":"B"},
+    {"id": "sheldon@gmail.com", "name" :"Sheldon", "initials":"S"},
+    {"id": "joey@gmail.com", "name" :"Joey", "initials":"J"},
+    {"id": "phoebe@gmail.com", "name" :"Phoebe", "initials":"P"}
+]

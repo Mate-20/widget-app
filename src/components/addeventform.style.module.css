@@ -19,7 +19,7 @@
 
 .dateContainer {
     display: flex;
-    background-color: rgba(255, 255, 255, 0.205);
+    background-color: #343a40;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 10px 20px;
@@ -48,7 +48,7 @@
 }
 
 .locationContainer {
-    background-color: rgba(255, 255, 255, 0.205);
+    background-color: #343a40;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
     border-radius: 5px;
@@ -75,7 +75,7 @@
 
 .descContainer {
     display: flex;
-    background-color: rgba(255, 255, 255, 0.205);
+    background-color: #343a40;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 10px 20px;
@@ -136,7 +136,7 @@
 } */
 
 .imageContainer .btns {
-    background-color: rgba(255, 255, 255, 0.205);
+    background-color: #343a40;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 10px;
@@ -223,7 +223,7 @@
 .submitBtn {
     cursor: pointer;
     margin-top: 20px;
-    background-color: rgb(29, 29, 29);
+    background-color: #343a40;
     border: none;
     width: 100%;
     border-radius: 5px;
