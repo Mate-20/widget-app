@@ -39,11 +39,11 @@ const AddEvent = () => {
     const filterEvents = (event) => {
         return event.tags.includes(searchInput.toLowerCase());
     };
-    useEffect(()=>{
+    useEffect(() => {
         const matches = EventData.filter(filterEvents);
         setMatchingEvents(matches);
         setIsEventDropdownOpen(true)
-    },[searchInput])
+    }, [searchInput])
     const handleEventClick = (event) => {
         setIsEventDropdownOpen(false)
         setSelectedEvent(event);
@@ -83,9 +83,9 @@ const AddEvent = () => {
     }
 
     const handleModal = () => {
-        if(!isFormDisabled){
+        if (!isFormDisabled) {
             setIsModalOpen(!isModalOpen)
-        }   
+        }
     }
     const handleDescription = (value) => {
         setDescription(value)
@@ -137,21 +137,24 @@ const AddEvent = () => {
     return (
         <div className={styles.bodyContainer}>
             <div className={styles.container}>
-                <div className={styles.btnContainer}>
+                {/* <div className={styles.btnContainer}>
                     <div className={styles.heading}>Your Event</div>
-                    <button type='button' onClick={()=>setIsFormDisabled(!isFormDisabled)} className={`${styles.btn} ${!isFormDisabled ? styles.btnActive : ""}`}>Add Manually</button>
-                </div>
+                    <button type='button' onClick={() => setIsFormDisabled(!isFormDisabled)} className={`${styles.btn} ${!isFormDisabled ? styles.btnActive : ""}`}>Add Manually</button>
+                </div> */}
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.formFieldsContainer}>
                         <div className={styles.search}>
-                            <input
-                                type='text'
-                                placeholder='Enter Event Url or Search for an Event'
-                                onChange={(e) => setSearchInput(e.target.value)}
-                                value={searchInput}
-                                required
-                            />
-                            <button type='button' ><img src={SearchIcon} alt='search' /></button>
+                            <div className={styles.searchContainer}>
+                                <img src={SearchIcon} alt='search' />
+                                <input
+                                    type='text'
+                                    placeholder='Enter Event Url or Search for an Event'
+                                    onChange={(e) => setSearchInput(e.target.value)}
+                                    value={searchInput}
+                                    required
+                                />
+                            </div>
+                            <button type='button' onClick={() => setIsFormDisabled(!isFormDisabled)} className={`${styles.btn} ${!isFormDisabled ? styles.activeBtn : ""}`}>Add Manually</button>
                             {isEventDropdownOpen && (
                                 <div className={styles.dropdown}>
                                     {matchingEvents.map(event => (
@@ -167,11 +170,11 @@ const AddEvent = () => {
                                 <img src={DateIcon} alt='SearchIcon' />
                                 <span className={styles.heading}>Dates</span>
                             </div>
-                            <div className={styles.input}><RangePicker startDate={startDate} endDate={endDate} disabled = {isFormDisabled}/></div>
+                            <div className={styles.input}><RangePicker startDate={startDate} endDate={endDate} disabled={isFormDisabled} /></div>
                         </div>
                         <div className={styles.locationContainer}>
                             <img src={LocationIcon} alt='LocationIcon' />
-                            <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} required placeholder='Location' disabled = {isFormDisabled} />
+                            <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} required placeholder='Location' disabled={isFormDisabled} />
                         </div>
                         <div className={styles.descContainer} onClick={handleModal}>
                             <img src={DescIcon} alt='DescIcon' />
@@ -183,7 +186,7 @@ const AddEvent = () => {
                         <div className={styles.employeeContainer}>
                             <div className={styles.employeeIconContainer}>
                                 <img src={PeopleIcon} alt='SearchIcon' />
-                                <input type="text" value={employeeMail} onChange={(e) => setEmployeeMail(e.target.value)} required placeholder='Add Employee mail' disabled = {isFormDisabled} />
+                                <input type="text" value={employeeMail} onChange={(e) => setEmployeeMail(e.target.value)} required placeholder='Add Employee mail' disabled={isFormDisabled} />
                             </div>
                             {isEmployeeDropdownOpen && (
                                 <div className={styles.dropdown}>
@@ -208,7 +211,7 @@ const AddEvent = () => {
                         <div className={styles.btns}>
                             <label onClick={handlePoster}>AI Generate</label>
                             <label htmlFor='fileUpload'>Upload Image</label>
-                            <input id='fileUpload' type="file" onChange={handleImageChange} disabled = {isFormDisabled} />
+                            <input id='fileUpload' type="file" onChange={handleImageChange} disabled={isFormDisabled} />
                         </div>
                         <div className={styles.imageHolder}>
                             {isLoading ? (
