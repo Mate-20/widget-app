@@ -1,5 +1,5 @@
 .bodyContainer {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     background-color: var(--primary-bg);
     display: flex;
@@ -313,19 +313,20 @@
 }
 
 .formImgContainer .imageHolder {
-    padding: 20px;
+    height: 70%;
+    padding: 10px;
     border: 3px solid var(--bg);
     border-radius: 7px;
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .formImgContainer .imageHolder .loader {
-    width: 300px;
-    height: 300px;
+    width: 80%;
+    height: 80%;
     border-radius: 10px;
-    border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -351,12 +352,14 @@
 }
 
 .formImgContainer .imageHolder .imageBox {
+    width: 80%;
+    height: 80%;
     position: relative;
 }
 
 .formImgContainer .imageHolder img {
-    width: 300px;
-    height: 300px;
+    height: 100%;
+    width: 100%;
     border-radius: 10px;
 }
 
@@ -383,7 +386,6 @@
 
 @media screen and (max-width: 1511px) {
     .bodyContainer {
-        height: fit-content;
         width: 100vw;
         background-color: var(--primary-bg);
     }
@@ -401,8 +403,5 @@
         margin-left: 0px;
         margin-top: 30px;
         width: 100%;
-        
     }
-    
-    
 }
