@@ -11,7 +11,7 @@
     width: 50%;
     min-height: 500px;
     background-color: var(--secondary-bg);
-    border-radius: 7px;
+    border-radius: 10px;
 }
 
 .btnContainer {
@@ -48,7 +48,7 @@
 .search {
     position: relative;
     background-color: var(--bg);
-    border-radius: 5px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     padding: 10px 20px;
@@ -95,6 +95,7 @@
     z-index: 1;
     width: 100%;
 }
+
 .dropdownItem {
     border-bottom: 1px solid rgb(134, 134, 134);
     font-size: 20px;
@@ -111,7 +112,7 @@
 .dateContainer {
     display: flex;
     background-color: var(--bg);
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px 20px;
     margin-top: 20px;
     justify-content: space-between;
@@ -119,13 +120,12 @@
 
 .dateContainer .heading {
     color: rgba(255, 255, 255, 0.452);
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 16px;
     margin-left: 10px;
 }
 
 .dateContainer .input {
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.205);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -138,7 +138,7 @@
 .locationContainer {
     background-color: var(--bg);
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-top: 20px;
     display: flex;
     align-items: center;
@@ -146,10 +146,10 @@
 
 .locationContainer input {
     margin-left: 10px;
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     border: none;
     background: none;
+    color: rgb(233, 233, 233);
 }
 
 .locationContainer input::placeholder {
@@ -159,60 +159,66 @@
 .locationContainer input:focus {
     outline: none;
 }
+
 .descContainer {
     display: flex;
     background-color: var(--bg);
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px 20px;
     margin-top: 20px;
     cursor: pointer;
 }
+
 .descContainer .descHeading {
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.452);
     margin-left: 10px;
 }
-.descContainer .disabled{
+
+.descContainer .disabled {
     color: var(--disabled-color);
 }
+
 .descContainer input {
     width: 100%;
     font-size: 16px;
-    color: black;
+    color: rgb(233, 233, 233);
     margin-left: 10px;
     background: none;
     border: none;
 }
+
 .modal {
     top: 0%;
     left: 0%;
     position: absolute;
     height: 0;
     transition: height .2s ease-in-out;
-    overflow: hidden;  
+    overflow: hidden;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.568);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.modalOpen{
+
+.modalOpen {
     height: 100vh;
 }
+
 .employeeContainer {
     position: relative;
     display: flex;
     background-color: var(--bg);
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px 20px;
     margin-top: 20px;
     justify-content: space-between;
 }
+
 .employeeContainer input {
     margin-left: 10px;
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     border: none;
     background: none;
 }
@@ -224,10 +230,12 @@
 .employeeContainer input:focus {
     outline: none;
 }
+
 .employeeIconContainer {
     display: flex;
     align-items: center;
 }
+
 .employeeContainer button {
     background-color: var(--secondary-bg);
     cursor: pointer;
@@ -237,12 +245,17 @@
     height: 30px;
     border: none;
 }
+
 .addedEmployees {
-    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
     display: flex;
-    flex-wrap: nowrap; /* Ensure flex items stay in a single row */
-    max-width: calc(100% - 20px); /* Limit maximum width to prevent excessive stretching */
+    flex-wrap: nowrap;
+    /* Ensure flex items stay in a single row */
+    max-width: calc(100% - 20px);
+    /* Limit maximum width to prevent excessive stretching */
 }
+
 .addedEmployee {
     margin-top: 10px;
     margin-right: 10px;
@@ -254,27 +267,30 @@
     justify-content: center;
     border-radius: 50%;
     color: white;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
-.submitBtn{
+
+.submitBtn {
     width: 100%;
     background-color: var(--primary-bg);
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
     border: none;
     color: white;
     margin-top: 20px;
     cursor: pointer;
 }
+
 .formImgContainer {
     margin-left: 30px;
     width: 50%;
     display: flex;
     flex-direction: column;
 }
+
 .formImgContainer .btns {
     background-color: var(--bg);
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -285,15 +301,17 @@
     cursor: pointer;
     background-color: var(--secondary-bg);
     border: none;
-    width:40%;
+    width: 40%;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
     font-size: 16px;
 }
-.formImgContainer .btns input{
+
+.formImgContainer .btns input {
     display: none;
 }
+
 .formImgContainer .imageHolder {
     padding: 20px;
     border: 3px solid var(--bg);
@@ -331,9 +349,11 @@
         transform: rotate(360deg);
     }
 }
-.formImgContainer .imageHolder .imageBox{
+
+.formImgContainer .imageHolder .imageBox {
     position: relative;
 }
+
 .formImgContainer .imageHolder img {
     width: 300px;
     height: 300px;
@@ -359,4 +379,30 @@
     width: 40px;
     height: 40px;
     background-color: rgba(255, 255, 255, 0.678);
+}
+
+@media screen and (max-width: 1511px) {
+    .bodyContainer {
+        height: fit-content;
+        width: 100vw;
+        background-color: var(--primary-bg);
+    }
+    .container {
+        margin: 50px;
+    }
+    .form{
+        flex-direction: column;
+        align-items: center;
+    }
+    .formFieldsContainer {
+        width: 100%;
+    }
+    .formImgContainer {
+        margin-left: 0px;
+        margin-top: 30px;
+        width: 100%;
+        
+    }
+    
+    
 }

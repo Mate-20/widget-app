@@ -62,7 +62,7 @@ const AddEvent = () => {
     const filterEmployees = (mail) => {
         return mail.id.includes(employeeMail.toLowerCase())
     }
-    useEffect(()=>{
+    useEffect(() => {
         if (employeeMail.trim() !== '') {
             const matches = EmployeeData.filter(filterEmployees);
             setMatchingEmployees(matches);
@@ -70,7 +70,7 @@ const AddEvent = () => {
         } else {
             setMatchingEmployees([]);
         }
-    },[employeeMail])
+    }, [employeeMail])
     const handleEmployeeClick = (employee) => {
         setIsEmployeeDropdownOpen(false)
         // Check if the email already exists in the addedEmployees list
@@ -92,7 +92,9 @@ const AddEvent = () => {
 
 
     const handlePoster = () => {
-        generatePrompt(location, description)
+        if (location && description) {
+            generatePrompt(location, description)
+        }
     }
 
     const handleImageChange = (e) => {
@@ -180,9 +182,8 @@ const AddEvent = () => {
                         <div className={styles.employeeContainer}>
                             <div className={styles.employeeIconContainer}>
                                 <img src={PeopleIcon} alt='SearchIcon' />
-                                <input type="text" value={employeeMail} onChange={(e) =>setEmployeeMail(e.target.value)} required placeholder='Add Employee mail' />
+                                <input type="text" value={employeeMail} onChange={(e) => setEmployeeMail(e.target.value)} required placeholder='Add Employee mail' />
                             </div>
-                            {/* <button type='button' onClick={handleInputEmailChange}><img src={SearchIcon} alt='search' /></button> */}
                             {isEmployeeDropdownOpen && (
                                 <div className={styles.dropdown}>
                                     {matchingEmployees.map(employee => (
