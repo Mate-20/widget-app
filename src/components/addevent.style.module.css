@@ -1,104 +1,101 @@
-.container {
+.bodyContainer {
     height: 100vh;
     width: 100vw;
-    /* background: linear-gradient(118deg, rgba(138,183,223,1) 0%, rgba(101,170,222,1) 25%, rgba(153,177,241,1) 51%, rgba(126,178,222,1) 80%, rgba(133,199,222,1) 100%); */
-    /* background-color: #3d5a80; */
-    /* background-color: #57cc99; */
     background-color: var(--primary-bg);
-    /* background-color: #6290c8; */
-    /* background-size: 300% 300%; */
-    /* animation: gradientAnimation 5s ease-in-out infinite; */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-/* @keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-} */
-
-.SearchFormContainer {
+.container {
     width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
+    min-height: 500px;
+    background-color: var(--secondary-bg);
+    border-radius: 7px;
 }
-.btn{
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: rgba(29, 29, 29, 0.274);
-    height: 100%;
-    border-radius: 5px;
+
+.btnContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid grey;
+}
+
+.btnContainer .heading {
+    color: rgb(233, 233, 233);
+    font-weight: 500;
+    font-size: 23px;
+}
+
+.btnContainer .btn {
     border: none;
-    width: fit-content;
-    color: black;
-    font-weight: bold;
+    background-color: var(--bg);
+    border-radius: 7px;
+    color: rgb(233, 233, 233);
+    filter: drop-shadow(1px 1px 1px black);
     cursor: pointer;
 }
-.btn:hover{
-    transition-duration: .2s;
-    background-color: rgba(29, 29, 29, 0.116);
+
+.form {
+    display: flex;
+    padding: 20px;
 }
-.activeBtn{
-    background-color: rgba(255, 255, 255, 0.103);
+
+.formFieldsContainer {
+    width: 50%;
 }
+
 .search {
-    width: 80%;
     position: relative;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.103);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    background-color: var(--bg);
+    border-radius: 5px;
     display: flex;
     align-items: center;
+    padding: 10px 20px;
 }
-.search button{
-    background-color: rgba(255, 255, 255, 0.185);
+
+.search button {
+    background-color: var(--secondary-bg);
     cursor: pointer;
     padding: 5px;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+    width: 30px;
+    height: 30px;
     border: none;
 }
-.search button:hover{
+
+.search button:hover {
     transition-duration: .1s;
     background-color: rgba(29, 29, 29, 0.253);
 }
+
 .search input {
     width: 100%;
     background: none;
     border: none;
-    font-size: 25px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: bold;
     color: white;
-    margin: 10px;
 }
-.search input::placeholder{
+
+.search input::placeholder {
     color: rgba(255, 255, 255, 0.452);
 }
+
 .search input:focus {
     outline: none;
 }
-.dropdown{
+
+.dropdown {
+    height: 200px;
+    overflow: auto;
     position: absolute;
     top: 100%;
+    left: 0%;
     z-index: 1;
     width: 100%;
 }
-.dropdownItem{
+.dropdownItem {
     border-bottom: 1px solid rgb(134, 134, 134);
     font-size: 20px;
     padding: 10px;
@@ -106,16 +103,260 @@
     cursor: pointer;
     color: white;
 }
-.dropdownItem:hover{
+
+.dropdownItem:hover {
     background-color: rgba(29, 29, 29, 0.911);
 }
 
-.eventFormBlur{
-    filter: blur(5px);
+.dateContainer {
+    display: flex;
+    background-color: var(--bg);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    justify-content: space-between;
 }
 
-@media (max-width : 615px){
-    .search{
-        width: 60%;
+.dateContainer .heading {
+    color: rgba(255, 255, 255, 0.452);
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.dateContainer .input {
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.205);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dateIconContainer {
+    display: flex;
+    align-items: center;
+}
+
+.locationContainer {
+    background-color: var(--bg);
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.locationContainer input {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    background: none;
+}
+
+.locationContainer input::placeholder {
+    color: rgba(255, 255, 255, 0.452);
+}
+
+.locationContainer input:focus {
+    outline: none;
+}
+.descContainer {
+    display: flex;
+    background-color: var(--bg);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.descContainer .descHeading {
+    font-weight: bold;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.452);
+    margin-left: 10px;
+}
+.descContainer .disabled{
+    color: var(--disabled-color);
+}
+.descContainer input {
+    width: 100%;
+    font-size: 16px;
+    color: black;
+    margin-left: 10px;
+    background: none;
+    border: none;
+}
+.modal {
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    height: 0;
+    transition: height .2s ease-in-out;
+    overflow: hidden;  
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.568);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modalOpen{
+    height: 100vh;
+}
+.employeeContainer {
+    position: relative;
+    display: flex;
+    background-color: var(--bg);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+.employeeContainer input {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    background: none;
+}
+
+.employeeContainer input::placeholder {
+    color: rgba(255, 255, 255, 0.452);
+}
+
+.employeeContainer input:focus {
+    outline: none;
+}
+.employeeIconContainer {
+    display: flex;
+    align-items: center;
+}
+.employeeContainer button {
+    background-color: var(--secondary-bg);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+.addedEmployees {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    display: flex;
+    flex-wrap: nowrap; /* Ensure flex items stay in a single row */
+    max-width: calc(100% - 20px); /* Limit maximum width to prevent excessive stretching */
+}
+.addedEmployee {
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: var(--bg);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    flex-shrink: 0; 
+}
+.submitBtn{
+    width: 100%;
+    background-color: var(--primary-bg);
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.formImgContainer {
+    margin-left: 30px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.formImgContainer .btns {
+    background-color: var(--bg);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.formImgContainer .btns label {
+    cursor: pointer;
+    background-color: var(--secondary-bg);
+    border: none;
+    width:40%;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+.formImgContainer .btns input{
+    display: none;
+}
+.formImgContainer .imageHolder {
+    padding: 20px;
+    border: 3px solid var(--bg);
+    border-radius: 7px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.formImgContainer .imageHolder .loader {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formImgContainer .imageHolder .loader div {
+    border: 5px solid #EAF0F6;
+    border-radius: 50%;
+    border-top: 5px solid #FF7A59;
+    width: 30px;
+    height: 30px;
+    animation: spinner 2s linear infinite;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
     }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.formImgContainer .imageHolder .imageBox{
+    position: relative;
+}
+.formImgContainer .imageHolder img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.formImgContainer .imageHolder .imageLocation {
+    position: absolute;
+    bottom: 2%;
+    left: 1%;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.616);
+    padding: 0px 10px;
+    border-radius: 10px;
+
+}
+
+.formImgContainer .imageHolder .logo {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.678);
 }
