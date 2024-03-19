@@ -39,12 +39,11 @@ const AddEvent = () => {
     const filterEvents = (event) => {
         return event.tags.includes(searchInput.toLowerCase());
     };
-    // Will be called when search icon on input Event will be clicked.
-    const handleInputEventChange = () => {
+    useEffect(()=>{
         const matches = EventData.filter(filterEvents);
         setMatchingEvents(matches);
         setIsEventDropdownOpen(true)
-    };
+    },[searchInput])
     const handleEventClick = (event) => {
         setIsEventDropdownOpen(false)
         setSelectedEvent(event);
@@ -152,7 +151,7 @@ const AddEvent = () => {
                                 value={searchInput}
                                 required
                             />
-                            <button type='button' onClick={handleInputEventChange}><img src={SearchIcon} alt='search' /></button>
+                            <button type='button' ><img src={SearchIcon} alt='search' /></button>
                             {isEventDropdownOpen && (
                                 <div className={styles.dropdown}>
                                     {matchingEvents.map(event => (
