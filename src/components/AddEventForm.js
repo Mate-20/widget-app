@@ -162,7 +162,6 @@ const AddEventForm = (props) => {
               <div className={`${styles.descHeading} ${props.formDisabled ? styles.disabled : ""}`} >Description</div>
               {description.length > 0 && <input className={styles.descPara} disabled={true} value={description} />}
             </div>
-
           </div>
           <button type="submit" className={styles.submitBtn} disabled={props.formDisabled}>Add Event</button>
         </div>

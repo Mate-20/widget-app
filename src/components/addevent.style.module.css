@@ -4,7 +4,7 @@
     /* background: linear-gradient(118deg, rgba(138,183,223,1) 0%, rgba(101,170,222,1) 25%, rgba(153,177,241,1) 51%, rgba(126,178,222,1) 80%, rgba(133,199,222,1) 100%); */
     /* background-color: #3d5a80; */
     /* background-color: #57cc99; */
-    background-color: rgb(29, 29, 29);
+    background-color: var(--primary-bg);
     /* background-color: #6290c8; */
     /* background-size: 300% 300%; */
     /* animation: gradientAnimation 5s ease-in-out infinite; */

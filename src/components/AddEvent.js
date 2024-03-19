@@ -62,9 +62,7 @@ const AddEvent = () => {
                 </div>
                 <button type='button' className={`${styles.btn} ${isFormDisbaled ? styles.activeBtn : ""}`} onClick={handleButtonClick}>Add Manually</button>
             </form>
-            <div className={`${isFormBlur ? styles.eventFormBlur : ""}`}>
-                <AddEventForm selectedEvent={selectedEvent} formDisabled={isFormDisbaled} />
-            </div>
+            <AddEventForm selectedEvent={selectedEvent} formDisabled={isFormDisbaled} />
         </div>
     )
 }
