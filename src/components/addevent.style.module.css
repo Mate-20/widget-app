@@ -35,6 +35,14 @@
     filter: drop-shadow(1px 1px 1px black);
     cursor: pointer;
 }
+.btnContainer .btn:hover{
+    transition-duration: .2s;
+    background-color: var(--primary-bg);
+}
+.btnContainer .btnActive{
+    background-color: var(--primary-bg);
+    filter: drop-shadow(1px 1px 4px white);
+}
 
 .form {
     display: flex;
@@ -221,6 +229,7 @@
     font-size: 16px;
     border: none;
     background: none;
+    color: rgb(233, 233, 233);
 }
 
 .employeeContainer input::placeholder {
@@ -248,12 +257,9 @@
 
 .addedEmployees {
     overflow-x: auto;
-    /* Enable horizontal scrolling */
     display: flex;
     flex-wrap: nowrap;
-    /* Ensure flex items stay in a single row */
     max-width: calc(100% - 20px);
-    /* Limit maximum width to prevent excessive stretching */
 }
 
 .addedEmployee {

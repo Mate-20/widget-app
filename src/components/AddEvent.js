@@ -17,7 +17,7 @@ const AddEvent = () => {
     const [matchingEvents, setMatchingEvents] = useState([]); // All events that macthes ther search
     const [selectedEvent, setSelectedEvent] = useState(null); // Event that we are selecting and sending to form
     const [isEventDropdownOpen, setIsEventDropdownOpen] = useState(false)
-    const [isFormBlur, setIsFormBlur] = useState(true)
+    const [isFormDisabled, setIsFormDisabled] = useState(true)
     const { isLoading, imageUrl, generatePrompt } = usePosterGenerator();
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
@@ -84,7 +84,9 @@ const AddEvent = () => {
     }
 
     const handleModal = () => {
-        setIsModalOpen(!isModalOpen)
+        if(!isFormDisabled){
+            setIsModalOpen(!isModalOpen)
+        }   
     }
     const handleDescription = (value) => {
         setDescription(value)
@@ -131,14 +133,14 @@ const AddEvent = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log("clciked")
     }
+
     return (
         <div className={styles.bodyContainer}>
             <div className={styles.container}>
                 <div className={styles.btnContainer}>
                     <div className={styles.heading}>Your Event</div>
-                    <button type='button' className={styles.btn}>Add Manually</button>
+                    <button type='button' onClick={()=>setIsFormDisabled(!isFormDisabled)} className={`${styles.btn} ${!isFormDisabled ? styles.btnActive : ""}`}>Add Manually</button>
                 </div>
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.formFieldsContainer}>
@@ -166,11 +168,11 @@ const AddEvent = () => {
                                 <img src={DateIcon} alt='SearchIcon' />
                                 <span className={styles.heading}>Dates</span>
                             </div>
-                            <div className={styles.input}><RangePicker startDate={startDate} endDate={endDate} /></div>
+                            <div className={styles.input}><RangePicker startDate={startDate} endDate={endDate} disabled = {isFormDisabled}/></div>
                         </div>
                         <div className={styles.locationContainer}>
                             <img src={LocationIcon} alt='LocationIcon' />
-                            <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} required placeholder='Location' />
+                            <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} required placeholder='Location' disabled = {isFormDisabled} />
                         </div>
                         <div className={styles.descContainer} onClick={handleModal}>
                             <img src={DescIcon} alt='DescIcon' />
@@ -182,7 +184,7 @@ const AddEvent = () => {
                         <div className={styles.employeeContainer}>
                             <div className={styles.employeeIconContainer}>
                                 <img src={PeopleIcon} alt='SearchIcon' />
-                                <input type="text" value={employeeMail} onChange={(e) => setEmployeeMail(e.target.value)} required placeholder='Add Employee mail' />
+                                <input type="text" value={employeeMail} onChange={(e) => setEmployeeMail(e.target.value)} required placeholder='Add Employee mail' disabled = {isFormDisabled} />
                             </div>
                             {isEmployeeDropdownOpen && (
                                 <div className={styles.dropdown}>
@@ -207,7 +209,7 @@ const AddEvent = () => {
                         <div className={styles.btns}>
                             <label onClick={handlePoster}>AI Generate</label>
                             <label htmlFor='fileUpload'>Upload Image</label>
-                            <input id='fileUpload' type="file" onChange={handleImageChange} />
+                            <input id='fileUpload' type="file" onChange={handleImageChange} disabled = {isFormDisabled} />
                         </div>
                         <div className={styles.imageHolder}>
                             {isLoading ? (
