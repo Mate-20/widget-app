@@ -7,17 +7,18 @@
     align-items: center;
 }
 
-.container {
+.form {
     width: 50%;
     min-height: 400px;
     background-color: var(--secondary-bg);
     border-radius: 10px;
-}
-
-.form {
     display: flex;
     padding: 20px;
 }
+
+/* .form {
+
+} */
 
 .formFieldsContainer {
     width: 50%;
@@ -73,7 +74,7 @@
 }
 
 .dropdown {
-    height: 200px;
+    max-height: 200px;
     overflow: auto;
     position: absolute;
     top: 100%;
@@ -192,12 +193,10 @@
 
 .employeeContainer {
     position: relative;
-    display: flex;
     background-color: var(--bg);
     border-radius: 10px;
     padding: 10px 20px;
     margin-top: 20px;
-    justify-content: space-between;
 }
 
 .employeeContainer input {
@@ -206,6 +205,7 @@
     border: none;
     background: none;
     color: rgb(233, 233, 233);
+    width: 100%;
 }
 
 .employeeContainer input::placeholder {

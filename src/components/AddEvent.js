@@ -44,6 +44,8 @@ const AddEvent = () => {
         setMatchingEvents(matches);
         setIsEventDropdownOpen(true)
     }, [searchInput])
+        
+
     const handleEventClick = (event) => {
         setIsEventDropdownOpen(false)
         setSelectedEvent(event);
@@ -57,6 +59,7 @@ const AddEvent = () => {
         setEndDate(selectedEvent?.endDate || '')
         setLogoUrl(selectedEvent?.logo || "")
     }, [selectedEvent]);
+
 
     const filterEmployees = (mail) => {
         return mail.id.includes(employeeMail.toLowerCase())
@@ -136,99 +139,95 @@ const AddEvent = () => {
 
     return (
         <div className={styles.bodyContainer}>
-            <div className={styles.container}>
-                {/* <div className={styles.btnContainer}>
-                    <div className={styles.heading}>Your Event</div>
-                    <button type='button' onClick={() => setIsFormDisabled(!isFormDisabled)} className={`${styles.btn} ${!isFormDisabled ? styles.btnActive : ""}`}>Add Manually</button>
-                </div> */}
-                <form className={styles.form} onSubmit={handleSubmit}>
-                    <div className={styles.formFieldsContainer}>
-                        <div className={styles.search}>
-                            <div className={styles.searchContainer}>
-                                <img src={SearchIcon} alt='search' />
-                                <input
-                                    type='text'
-                                    placeholder='Enter Event Url or Search for an Event'
-                                    onChange={(e) => setSearchInput(e.target.value)}
-                                    value={searchInput}
-                                    required
-                                />
+            {/* <div className={styles.container}> */}
+            <form className={styles.form} onSubmit={handleSubmit}>
+                <div className={styles.formFieldsContainer}>
+                    <div className={styles.search}>
+                        <div className={styles.searchContainer}>
+                            <img src={SearchIcon} alt='search' />
+                            <input
+                                type='text'
+                                placeholder='Enter Event Url or Search for an Event'
+                                onChange={(e) => setSearchInput(e.target.value)}
+                                value={searchInput}
+                                required
+                            />
+                        </div>
+                        <button type='button' onClick={() => setIsFormDisabled(!isFormDisabled)} className={`${styles.btn} ${!isFormDisabled ? styles.activeBtn : ""}`}>Add Manually</button>
+                        {isEventDropdownOpen && (
+                            <div className={styles.dropdown}>
+                                {matchingEvents.map(event => (
+                                    <div key={event.id} className={styles.dropdownItem} onClick={() => handleEventClick(event)}>
+                                        {event.name}
+                                    </div>
+                                ))}
                             </div>
-                            <button type='button' onClick={() => setIsFormDisabled(!isFormDisabled)} className={`${styles.btn} ${!isFormDisabled ? styles.activeBtn : ""}`}>Add Manually</button>
-                            {isEventDropdownOpen && (
-                                <div className={styles.dropdown}>
-                                    {matchingEvents.map(event => (
-                                        <div key={event.id} className={styles.dropdownItem} onClick={() => handleEventClick(event)}>
-                                            {event.name}
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                        <div className={styles.dateContainer}>
-                            <div className={styles.dateIconContainer}>
-                                <img src={DateIcon} alt='SearchIcon' />
-                                <span className={styles.heading}>Dates</span>
-                            </div>
-                            <div className={styles.input}><RangePicker startDate={startDate} endDate={endDate} disabled={isFormDisabled} /></div>
-                        </div>
-                        <div className={styles.locationContainer}>
-                            <img src={LocationIcon} alt='LocationIcon' />
-                            <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} required placeholder='Location' disabled={isFormDisabled} />
-                        </div>
-                        <div className={styles.descContainer} onClick={handleModal}>
-                            <img src={DescIcon} alt='DescIcon' />
-                            <div className={styles.headingContainer}>
-                                <div className={styles.descHeading} >Description</div>
-                                {description.length > 0 && <input className={styles.descPara} disabled={true} value={description} />}
-                            </div>
-                        </div>
-                        <div className={styles.employeeContainer}>
-                            <div className={styles.employeeIconContainer}>
-                                <img src={PeopleIcon} alt='SearchIcon' />
-                                <input type="text" value={employeeMail} onChange={(e) => setEmployeeMail(e.target.value)} required placeholder='Add Employee mail' disabled={isFormDisabled} />
-                            </div>
-                            {isEmployeeDropdownOpen && (
-                                <div className={styles.dropdown}>
-                                    {matchingEmployees.map(employee => (
-                                        <div key={employee.id} className={styles.dropdownItem} onClick={() => handleEmployeeClick(employee)}>
-                                            {employee.id}
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                        <div className={styles.addedEmployees}>
-                            {addedEmployees.map(employee => (
-                                <div key={employee.id} className={styles.addedEmployee}>
-                                    <div>{employee.initials}</div>
-                                </div>
-                            ))}
-                        </div>
-                        <button className={styles.submitBtn} type='submit'>Add</button>
+                        )}
                     </div>
-                    <div className={styles.formImgContainer}>
-                        <div className={styles.btns}>
-                            <label onClick={handlePoster}>AI Generate</label>
-                            <label htmlFor='fileUpload'>Upload Image</label>
-                            <input id='fileUpload' type="file" onChange={handleImageChange} disabled={isFormDisabled} />
+                    <div className={styles.dateContainer}>
+                        <div className={styles.dateIconContainer}>
+                            <img src={DateIcon} alt='SearchIcon' />
+                            <span className={styles.heading}>Dates</span>
                         </div>
-                        <div className={styles.imageHolder}>
-                            {isLoading ? (
-                                <div className={styles.loader}>
-                                    <div></div>
-                                </div>
-                            ) : (
-                                <div className={styles.imageBox}>
-                                    <img src={image.placeHolder} alt="" />
-                                    <div className={styles.imageLocation}>{location}</div>
-                                    <img src={logoUrl} alt='logo' className={styles.logo}></img>
-                                </div>
-                            )}
+                        <div className={styles.input}><RangePicker startDate={startDate} endDate={endDate} disabled={isFormDisabled} /></div>
+                    </div>
+                    <div className={styles.locationContainer}>
+                        <img src={LocationIcon} alt='LocationIcon' />
+                        <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} required placeholder='Location' disabled={isFormDisabled} />
+                    </div>
+                    <div className={styles.descContainer} onClick={handleModal}>
+                        <img src={DescIcon} alt='DescIcon' />
+                        <div className={styles.headingContainer}>
+                            <div className={styles.descHeading} >Description</div>
+                            {description.length > 0 && <input className={styles.descPara} disabled={true} value={description} />}
                         </div>
                     </div>
-                </form>
-            </div>
+                    <div className={styles.employeeContainer}>
+                        <div className={styles.employeeIconContainer}>
+                            <img src={PeopleIcon} alt='SearchIcon' />
+                            <input type="text" value={employeeMail} onChange={(e) => setEmployeeMail(e.target.value)} required placeholder='Add Employee mail' disabled={isFormDisabled} />
+                        </div>
+                        {isEmployeeDropdownOpen && (
+                            <div className={styles.dropdown}>
+                                {matchingEmployees.map(employee => (
+                                    <div key={employee.id} className={styles.dropdownItem} onClick={() => handleEmployeeClick(employee)}>
+                                        {employee.id}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                    <div className={styles.addedEmployees}>
+                        {addedEmployees.map(employee => (
+                            <div key={employee.id} className={styles.addedEmployee}>
+                                <div>{employee.initials}</div>
+                            </div>
+                        ))}
+                    </div>
+                    <button className={styles.submitBtn} type='submit'>Add</button>
+                </div>
+                <div className={styles.formImgContainer}>
+                    <div className={styles.btns}>
+                        <label onClick={handlePoster}>AI Generate</label>
+                        <label htmlFor='fileUpload'>Upload Image</label>
+                        <input id='fileUpload' type="file" onChange={handleImageChange} disabled={isFormDisabled} />
+                    </div>
+                    <div className={styles.imageHolder}>
+                        {isLoading ? (
+                            <div className={styles.loader}>
+                                <div></div>
+                            </div>
+                        ) : (
+                            <div className={styles.imageBox}>
+                                <img src={image.placeHolder} alt="" />
+                                <div className={styles.imageLocation}>{location}</div>
+                                <img src={logoUrl} alt='logo' className={styles.logo}></img>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </form>
+            {/* </div> */}
             <div className={`${styles.modal} ${isModalOpen ? styles.modalOpen : ""} `}>
                 <DescriptionModal handleModal={handleModal} handleDescription={handleDescription} />
             </div>
