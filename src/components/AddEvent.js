@@ -44,7 +44,7 @@ const AddEvent = () => {
         setMatchingEvents(matches);
         setIsEventDropdownOpen(true)
     }, [searchInput])
-        
+
 
     const handleEventClick = (event) => {
         setIsEventDropdownOpen(false)
@@ -104,7 +104,6 @@ const AddEvent = () => {
     const handleImageChange = (e) => {
         // Handle image upload and set state for image preview
         if (e.target.files[0].type === 'image/png' || e.target.files[0].type === 'image/jpg' || e.target.files[0].type === 'image/jpeg') {
-
             // Showing Pewiew of Image
             const reader = new FileReader();
             reader.onload = (event) => {
@@ -115,7 +114,6 @@ const AddEvent = () => {
             };
             reader.readAsDataURL(e.target.files[0]);
         } else {
-            // toast.error("Wrong Image Type");
             image.file = null;
         }
     };
@@ -127,7 +125,6 @@ const AddEvent = () => {
     }, [imageUrl]);
 
     useEffect(() => {
-        // As soon as location changes, we want to trigger the poster generation. We cant put this in above useEffect, as setState is async, if will pass the location and description just after setting it, it will be passed empty
         if (location && description) {
             generatePrompt(location, description)
         }

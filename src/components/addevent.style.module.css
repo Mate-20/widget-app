@@ -16,10 +16,6 @@
     padding: 20px;
 }
 
-/* .form {
-
-} */
-
 .formFieldsContainer {
     width: 50%;
 }
@@ -57,10 +53,10 @@
     align-items: center;
 }
 .searchContainer input {
+    border: none;
     margin-left: 10px;
     font-size: 20px;
     font-weight: bold;
-    border: none;
     background: none;
     color: rgb(233, 233, 233);
 }
@@ -264,6 +260,8 @@
 }
 
 .formImgContainer {
+    border: 3px solid var(--bg);
+    border-radius: 7px;
     position: relative;
     margin-left: 30px;
     width: 50%;
@@ -278,8 +276,8 @@
     z-index: 1;
     top: 50%;
     left: 50%;
-    width: 93%;
-    height: 93%;
+    width: 95%;
+    height: 95%;
     transform: translate(-50%,-50%);
     background-color: rgba(29, 29, 29, 0.603);
     border-radius: 10px;
@@ -307,16 +305,14 @@
 
 .formImgContainer .imageHolder {
     height:100%;
-    border: 3px solid var(--bg);
-    border-radius: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .formImgContainer .imageHolder .loader {
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -376,14 +372,8 @@
 }
 
 @media screen and (max-width: 1511px) {
-    .bodyContainer {
-        width: 100vw;
-        background-color: var(--primary-bg);
-    }
-    .container {
-        margin: 50px;
-    }
     .form{
+        margin: 50px;
         flex-direction: column;
         align-items: center;
     }
@@ -394,5 +384,8 @@
         margin-left: 0px;
         margin-top: 30px;
         width: 100%;
+    }
+    .modalOpen {
+        height: 120vh;
     }
 }
