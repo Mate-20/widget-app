@@ -132,6 +132,7 @@ const AddEvent = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        
     }
 
     return (
