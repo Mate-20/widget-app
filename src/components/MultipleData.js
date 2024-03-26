@@ -64,9 +64,9 @@ const MultipleData = ({ cardData, layout, theme }) => {
 
     return (
         <div className={classes.body}>
-          <div className={`${layout === "navbar" ? classes.navContainer : layout === "sidebar" ? classes.sideContainer : classes.gridContainer} ${IsModalOpen ? classes.blur : ""}`}>
+          <div className={`${layout === "grid" ? classes.gridContainer : layout === "sidebar" ? classes.sideContainer : classes.navContainer} ${IsModalOpen ? classes.blur : ""}`}>
             <div className={classes.heading}>Your Events</div>
-            <div className={`${layout === "navbar" ? classes.cardNavStyle : layout === "sidebar" ? classes.cardSideStyle : classes.cardGridStyle}`}>
+            <div className={`${layout === "grid" ? classes.cardGridStyle : layout === "sidebar" ? classes.cardSideStyle : classes.cardNavStyle}`}>
               {cardData.map((item, key) => (
                 <Cards theme={theme} key={key} image={item.image} date={item.date} eventName={item.eventName} location={item.location} handleModal={handleModal} />
               ))}
@@ -78,7 +78,6 @@ const MultipleData = ({ cardData, layout, theme }) => {
             </div>
           )}
         </div>
-
     )
 }
 

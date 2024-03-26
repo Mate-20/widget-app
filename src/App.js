@@ -5,7 +5,7 @@ import DataHandle from './components/DataHandle';
 import ColorPalette from './components/ColorPalette';
 import CalendarModal from './components/calendar';
 import AddEvent from './components/AddEvent';
-import PopupWidget from './components/PopupWidget';
+import EmployeePage from './components/EmployeePage';
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
         <Route path='/palette' element={<ColorPalette/>} />
         <Route path='/slots' element={<CalendarModal/>} />
         <Route path='/addevent' element={<AddEvent/>} />
-        <Route path='/popup' element={<PopupWidget/>}/>
+        <Route path='/employee' element={<EmployeePage/>}/>
       </Routes>
     </div>
   )

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+.card{
+    width: 1009px;
+    height: 240px;
+    border: 1px solid #6650a465;
+    background: linear-gradient(118deg, #0c0c0c 0%, rgba(103,80,164,0.4) 100%);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.cardDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Sora", sans-serif;
+    color: white;
+    margin: 21px 26px 21px 26px;
+    z-index: 1;
+}
+.eventName{
+    font-size: 24px;
+}
+.eventLocation{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+.eventLocation img{
+    background-color: #6650a452;
+    border-radius: 50%;
+    padding: 6px;
+    margin-right: 7px;
+}
+.eventSpeakers .heading{
+    font-size: 9px;
+    margin-bottom: 14px;
+}
+.eventSpeakers .speakerContainer{
+    border-radius: 40px;
+    padding: 9px;
+    display: flex;
+    align-items: center;
+    width: 180px;
+    position: relative;
+    background: #0c0c0c;
+    
+}
+.eventSpeakers .speakerContainer::after {
+    content: '';
+    position: absolute;
+    left: -1px;
+    width: 101%;
+    height: 105%;
+    border-radius: 40px;
+    background: linear-gradient(118deg, rgba(103, 80, 164, 1) 0%, rgba(133, 133, 133, 1) 100%);
+  	z-index:-1;
+}
+
+.eventSpeakers .speakerContainer img{
+    background-color: #6650a452;
+    border-radius: 50%;
+    padding: 6px;
+    margin-right: 7px;
+}
+.eventSpeakers .speakerContainer div{
+    font-size: 12px;
+}
+.cardImg img{
+    border-radius: 0px 10.71px 10.71px 0px;
+}

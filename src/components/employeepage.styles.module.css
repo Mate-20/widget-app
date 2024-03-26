@@ -1,0 +1,21 @@
+.container{
+    background-color: #0c0c0c;
+    padding: 94px 132px;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: #1A1A1A;
+    padding: 18px;
+    margin-bottom: 65px;
+}
+.navbar .heading{
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+.navbar .heading img{
+    margin-right: 5px;
+}

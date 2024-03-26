@@ -9,7 +9,7 @@ import usePosterGenerator from '../service/posterGenerator';
 import Placeholder from '../assets/placeholder.png'
 import DescriptionModal from './DescriptionModal';
 import SearchIcon from '../icons/search.svg'
-import EventData from '../eventdata/demoEvent .json'
+import EventData from '../eventdata/demoEvent.json'
 import EmployeeData from '../eventdata/employeeData.json'
 
 const AddEvent = () => {
