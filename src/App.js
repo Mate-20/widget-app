@@ -5,7 +5,7 @@ import DataHandle from './components/DataHandle';
 import ColorPalette from './components/ColorPalette';
 import CalendarModal from './components/calendar';
 import AddEvent from './components/AddEvent';
-import EmployeePage from './components/EmployeePage';
+import EmployeePage from './components/employeepage/EmployeePage';
 
 const App = () => {
   return (

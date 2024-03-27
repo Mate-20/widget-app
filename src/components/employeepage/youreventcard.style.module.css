@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 .card{
-    width: 1009px;
+    width: 95%;
     height: 240px;
     border: 1px solid #6650a465;
     background: linear-gradient(118deg, #0c0c0c 0%, rgba(103,80,164,0.4) 100%);
@@ -65,7 +65,7 @@
 .eventSpeakers .speakerContainer::after {
     content: '';
     position: absolute;
-    left: -1px;
+    left: -0.5px;
     width: 101%;
     height: 105%;
     border-radius: 40px;

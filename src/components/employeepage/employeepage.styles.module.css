@@ -1,6 +1,10 @@
-.container{
+.body{
     background-color: #0c0c0c;
     padding: 94px 132px;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
 }
 .navbar{
     display: flex;
@@ -19,6 +23,12 @@
 .navbar .heading img{
     margin-right: 5px;
 }
+.timelineContainer{
+    width: 65%;
+}
 .timeline{
     display: flex;
+}
+.filterContainer{
+    width: 30%;
 }
