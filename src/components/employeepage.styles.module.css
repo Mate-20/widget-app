@@ -19,3 +19,6 @@
 .navbar .heading img{
     margin-right: 5px;
 }
+.timeline{
+    display: flex;
+}

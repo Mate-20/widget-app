@@ -4,8 +4,8 @@
         "name": "HORN Ok Food Festival",
         "description": "A food fest including a variety of drinks and food that you will savour for your entire life",
         "location": "Delhi",
-        "startDate": "09/20/2024",
-        "endDate": "09/21/2024",
+        "startDate": "010/20/2024",
+        "endDate": "010/21/2024",
         "tags": [
             "food",
             "festival",
@@ -41,8 +41,8 @@
         "name": "Painting Fest",
         "description": "A area filled with people and canvas boards to paint on. Come and paint your imagination",
         "location": "Ney York",
-        "startDate": "06/14/2024",
-        "endDate": "06/17/2024",
+        "startDate": "04/10/2024",
+        "endDate": "04/12/2024",
         "tags": [
             "paint",
             "painting",
@@ -58,8 +58,8 @@
         "name": "Tomartina Tomato Fest",
         "description": "A annual tomato fest in which streets get filled with tomatoes and people throw tomatoes at each other for fun",
         "location": "Italy",
-        "startDate": "06/14/2024",
-        "endDate": "06/17/2024",
+        "startDate": "09/20/2024",
+        "endDate": "09/21/2024",
         "tags": [
             "tomato",
             "tomartina",
@@ -75,8 +75,8 @@
         "name": "Film Festival",
         "description": "A annual film festival where people from all over India send in there directed films and they are shown in this festival on the large screen",
         "location": "Gurgaon",
-        "startDate": "06/14/2024",
-        "endDate": "06/17/2024",
+        "startDate": "08/20/2024",
+        "endDate": "08/22/2024",
         "tags": [
             "movie",
             "films",
