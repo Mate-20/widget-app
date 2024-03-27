@@ -1,6 +1,11 @@
-.body{
+.eventsBody{
     background-color: #0c0c0c;
     padding: 94px 132px;
+}
+.blur{
+    filter: blur(2px);
+    height: 100vh;
+    overflow: hidden;
 }
 .container{
     display: flex;
@@ -23,6 +28,27 @@
 .navbar .heading img{
     margin-right: 5px;
 }
+.navbar .btns{
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.navbar .btns .settings{
+    margin-right: 12px;
+}
+.navbar .btns .sort{
+    border: 1px solid #808081;
+    border-radius: 12px;
+    padding: 5px 24px;
+    margin-right: 12px;
+}
+.navbar .btns .add{
+    border-radius: 12px;
+    padding: 8px 15px;
+    display: flex;
+    background-color: #6750A4;
+    cursor: pointer;
+}
 .timelineContainer{
     width: 65%;
 }
@@ -31,4 +57,12 @@
 }
 .filterContainer{
     width: 30%;
+}
+.modal{
+    /* width: 100vw;
+    height: 100vh; */
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
 }
